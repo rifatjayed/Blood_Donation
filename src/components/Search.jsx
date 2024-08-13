@@ -1,5 +1,7 @@
+import divisiondistrict from "../assets/division";
+
 const Search = () => {
-  const handleChange = (e) => {};
+  const handleChange = () => {};
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
@@ -27,6 +29,27 @@ const Search = () => {
 
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 text-left">
+              Division
+            </label>
+            <select
+              id="blood-group"
+              name="bloodGroup"
+              onChange={handleChange}
+              className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+            >
+              {/* {divisiondistrict.map((division) => {
+                <option value={division.division}>{division.division}</option>;
+              })} */}
+
+              {divisiondistrict.map((division) => (
+                // eslint-disable-next-line react/jsx-key
+                <option value={division.division}>{division.division}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 text-left">
               Zila
             </label>
             <select
@@ -48,7 +71,7 @@ const Search = () => {
 
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 text-left">
-              Thana
+              Upzilla
             </label>
             <select
               id="blood-group"

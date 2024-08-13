@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -7,6 +7,9 @@ import divisionData from "../../assets/division";
 
 const RegisterPage = () => {
   console.log(divisionData[0].district[0].district);
+
+  const [division, setDivision] = useState();
+  const [district, setDistrict] = useState();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -14,10 +17,19 @@ const RegisterPage = () => {
     bloodGroup: "",
     lastDonate: Date.now(),
     birth: Date.now(),
-    division: "",
+    division: "Dhaka",
     district: "",
     upzilla: "",
   });
+
+  useEffect(() => {
+    const result = divisionData.find(
+      (item) => item[division] === formData.division
+    );
+    setDivision(result);
+    console.log("----------------------------------------------------");
+    console.log(division);
+  }, [formData.division]);
 
   const handleChange = (e) => {
     setFormData({
@@ -219,10 +231,10 @@ const RegisterPage = () => {
               <option value="AB-">AB-</option>
               <option value="O+">O+</option>
               <option value="O-">O-</option> */}
-
-              {/* {divisionData.map((district) => (
-                
-                <option>{district.district}</option>
+              {/* {console.log(division)} */}
+              {/* {division.district.map((district) => (
+                // eslint-disable-next-line react/jsx-key
+                <option value={district.district}>{district.district}</option>
               ))} */}
             </select>
           </div>
