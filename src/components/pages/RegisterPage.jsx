@@ -3,7 +3,10 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+import divisionData from "../../assets/division";
+
 const RegisterPage = () => {
+  console.log(divisionData[0].district[0].district);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,9 +14,10 @@ const RegisterPage = () => {
     bloodGroup: "",
     lastDonate: Date.now(),
     birth: Date.now(),
+    division: "",
+    district: "",
+    upzilla: "",
   });
-
-  //   const [startDate, setStartDate] = useState(new Date());
 
   const handleChange = (e) => {
     setFormData({
@@ -182,7 +186,7 @@ const RegisterPage = () => {
 
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 text-left">
-              Zila:
+              Division
             </label>
             <select
               id="blood-group"
@@ -190,20 +194,42 @@ const RegisterPage = () => {
               onChange={handleChange}
               className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
             >
-              <option value="A+">A+</option>
+              {divisionData.map((division) => (
+                // eslint-disable-next-line react/jsx-key
+                <option value={division.division}>{division.division}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 text-left">
+              District
+            </label>
+            <select
+              id="blood-group"
+              name="bloodGroup"
+              onChange={handleChange}
+              className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+            >
+              {/* <option value="A+">A+</option>
               <option value="A-">A-</option>
               <option value="B+">B+</option>
               <option value="B-">B-</option>
               <option value="AB+">AB+</option>
               <option value="AB-">AB-</option>
               <option value="O+">O+</option>
-              <option value="O-">O-</option>
+              <option value="O-">O-</option> */}
+
+              {/* {divisionData.map((district) => (
+                
+                <option>{district.district}</option>
+              ))} */}
             </select>
           </div>
 
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 text-left">
-              Thana:
+              Upazilla
             </label>
             <select
               id="blood-group"
