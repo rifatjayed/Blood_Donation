@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import divisionData from "../../assets/division";
 
 const RegisterPage = () => {
-  console.log(divisionData[0].district[0].district);
+  // console.log(divisionData[0].district[0].district);
 
   const [division, setDivision] = useState();
   const [district, setDistrict] = useState();
@@ -17,19 +17,23 @@ const RegisterPage = () => {
     bloodGroup: "",
     lastDonate: Date.now(),
     birth: Date.now(),
-    division: "Dhaka",
+    division: "Barishal",
     district: "",
-    upzilla: "",
+    upazilla: "",
   });
 
   useEffect(() => {
-    const result = divisionData.find(
-      (item) => item[division] === formData.division
+    var result = divisionData.find(
+      (item) => item["division"] === formData.division
     );
     setDivision(result);
-    console.log("----------------------------------------------------");
-    console.log(division);
-  }, [formData.division]);
+    if (formData.district) {
+      var dis = division.district.find(
+        (item) => item["district"] === formData.district
+      );
+      setDistrict(dis);
+    }
+  }, [formData]);
 
   const handleChange = (e) => {
     setFormData({
@@ -40,7 +44,7 @@ const RegisterPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
+    // console.log(formData);
   };
 
   return (
@@ -202,7 +206,7 @@ const RegisterPage = () => {
             </label>
             <select
               id="blood-group"
-              name="bloodGroup"
+              name="division"
               onChange={handleChange}
               className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
             >
@@ -219,23 +223,15 @@ const RegisterPage = () => {
             </label>
             <select
               id="blood-group"
-              name="bloodGroup"
+              name="district"
               onChange={handleChange}
               className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
             >
-              {/* <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option> */}
-              {/* {console.log(division)} */}
-              {/* {division.district.map((district) => (
-                // eslint-disable-next-line react/jsx-key
-                <option value={district.district}>{district.district}</option>
-              ))} */}
+              {division &&
+                division.district.map((district) => (
+                  // eslint-disable-next-line react/jsx-key
+                  <option value={district.district}>{district.district}</option>
+                ))}
             </select>
           </div>
 
@@ -245,18 +241,15 @@ const RegisterPage = () => {
             </label>
             <select
               id="blood-group"
-              name="bloodGroup"
+              name="upazilla"
               onChange={handleChange}
               className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
             >
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
+              {district &&
+                district.upazilla.map((upazilla) => (
+                  // eslint-disable-next-line react/jsx-key
+                  <option value={upazilla}>{upazilla}</option>
+                ))}
             </select>
           </div>
 
