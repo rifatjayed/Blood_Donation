@@ -160,7 +160,7 @@ const RegisterPage = () => {
               </label>
             </div>
           </div>
-          <div>
+          <div className="">
             <label
               className="block text-sm font-medium text-gray-700 mb-2 text-left"
               htmlFor=""
@@ -256,7 +256,7 @@ const RegisterPage = () => {
           <div className="mt-6">
             <button
               type="submit"
-              className="w-full px-4 py-2 bg-[#e42313] text-white font-semibold text-sm rounded-md shadow hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
+              className="w-full px-4 py-2 bg-[#c6414c] hover:bg-[#B30412] text-white font-semibold text-sm rounded-md shadow  focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
             >
               Submit
             </button>

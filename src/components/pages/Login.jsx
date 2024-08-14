@@ -26,7 +26,7 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full mt-4 px-4 py-2 bg-[#e42313] text-white font-semibold text-sm rounded-md shadow hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
+            className="w-full mt-4 px-4 py-2 bg-[#c6414c] hover:bg-[#B30412] text-white font-semibold text-sm rounded-md shadow  focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
           >
             Log In
           </button>

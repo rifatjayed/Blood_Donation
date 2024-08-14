@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Menubar = () => {
   return (
     <div>
@@ -5,14 +7,12 @@ const Menubar = () => {
 
       </nav> */}
 
-      <header className="bg-[#e42313] text-white">
+      <header className="bg-white text-[#c6414c]">
         <nav className="container mx-auto flex justify-between items-center p-4">
           <div className="text-2xl font-semibold">MyApp</div>
-          <ul className="flex space-x-4">
+          <ul className="flex space-x-4 font-serif">
             <li>
-              <a href="#home" className="hover:text-gray-400">
-                Home
-              </a>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <a href="#about" className="hover:text-gray-400">
@@ -20,14 +20,10 @@ const Menubar = () => {
               </a>
             </li>
             <li>
-              <a href="#login" className="hover:text-gray-400">
-                Login
-              </a>
+              <Link to="Login">Login</Link>
             </li>
             <li>
-              <a href="#register" className="hover:text-gray-400">
-                Register
-              </a>
+              <Link to="Register">Register</Link>
             </li>
           </ul>
         </nav>

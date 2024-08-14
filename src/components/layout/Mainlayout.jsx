@@ -9,10 +9,9 @@ const MainLayout = () => {
     <div>
       <Menubar></Menubar>
       <Hero></Hero>
-
+      <Search></Search>
       <RegisterPage></RegisterPage>
       <Login></Login>
-      <Search></Search>
     </div>
   );
 };
