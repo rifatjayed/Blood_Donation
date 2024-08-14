@@ -1,10 +1,18 @@
+import { useState } from "react";
 import divisiondistrict from "../assets/division";
 
 const Search = () => {
   const [division, setDivision] = useState();
   const [district, setDistrict] = useState();
+  const [formData, setFormData] = useState({
+    bloodGroup: "",
+    division: "Barishal",
+    district: "",
+    upazilla: "",
+  });
 
-  const handleChange = () => {};
+  const handleChange = (e) => {};
+
   return (
     <div className="flex items-center justify-center  ">
       <div className=" w-3/4	 bg-white p-8 rounded-lg shadow-md">
@@ -108,3 +116,7 @@ const Search = () => {
 };
 
 export default Search;
+// setFormData({
+//   ...formData,
+//   [e.target.name]: e.target.value,
+// });
