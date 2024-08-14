@@ -3,7 +3,7 @@ import Menubar from "../Menubar";
 import Login from "../pages/Login";
 import RegisterPage from "../pages/RegisterPage";
 import Search from "../Search";
-
+//this is main layout
 const MainLayout = () => {
   return (
     <div>
