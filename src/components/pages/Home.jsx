@@ -9,7 +9,6 @@ const Home = () => {
     <div>
       <Menubar></Menubar>
       <Outlet></Outlet>
-      <Search></Search>
     </div>
   );
 };

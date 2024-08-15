@@ -1,4 +1,5 @@
 import bgImg from "../assets/img/bg.jpg";
+import Search from "./Search";
 
 const Hero = () => {
   return (
@@ -26,6 +27,7 @@ const Hero = () => {
           </a>
         </div>
       </section>
+      <Search></Search>
     </div>
   );
 };
