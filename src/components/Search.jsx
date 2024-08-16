@@ -2,22 +2,25 @@ import { useEffect, useState } from "react";
 import divisiondistrict from "../assets/division";
 
 const Search = () => {
-  const [division, setDivision] = useState();
-  const [district, setDistrict] = useState();
+  const [divisionIdx, setDivisionIdx] = useState(-1);
+  const [districtIdx, setDistrictIdx] = useState(-1);
   const [formData, setFormData] = useState({
     bloodGroup: "",
-    division: "Barishal",
+    division: "",
     district: "",
     upazilla: "",
   });
 
   const handleChange = (e) => {
-    console.log(e.target);
+    // console.log(e.target);
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+  console.log(formData);
+  console.log(divisionIdx);
+  console.log(districtIdx);
 
   return (
     <div className="flex items-center justify-center  ">
@@ -51,14 +54,21 @@ const Search = () => {
             <select
               id="division"
               name="division"
+              value={formData.division}
               onChange={(e) => {
-                handleChange(e);
-                setDivision(e.target.ind);
-                // console.log(e.target.ind);
-                // console.log("division: ", division);
+                // handleChange(e);
+                setFormData({
+                  ...formData,
+                  division: e.target.value,
+                  district: "",
+                  upazilla: "",
+                });
+                setDistrictIdx(-1);
+                setDivisionIdx(e.target.selectedIndex - 1);
               }}
-              className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+              className="mt-1 w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
             >
+              <option value={""}>Please select a division</option>
               {divisiondistrict.map((division, index) => (
                 // eslint-disable-next-line react/jsx-key
                 <option value={division.division} key={index} ind={index}>
@@ -74,18 +84,34 @@ const Search = () => {
             </label>
             <select
               id="blood-group"
-              name="bloodGroup"
-              onChange={handleChange}
+              name="district"
+              value={formData.district}
+              onChange={(e) => {
+                // handleChange(e);
+                setFormData({
+                  ...formData,
+                  district: e.target.value,
+                  upazilla: "",
+                });
+                setDistrictIdx(e.target.selectedIndex - 1);
+              }}
               className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
             >
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
+              {divisionIdx + 1 ? (
+                <option value={""}>Please select a district</option>
+              ) : (
+                <option value={""}>Please select a division first</option>
+              )}
+
+              {divisionIdx + 1 &&
+                divisiondistrict[divisionIdx].district.map(
+                  (district, index) => (
+                    // eslint-disable-next-line react/jsx-key
+                    <option value={district.district} key={index} ind={index}>
+                      {district.district}
+                    </option>
+                  )
+                )}
             </select>
           </div>
 
@@ -95,18 +121,27 @@ const Search = () => {
             </label>
             <select
               id="blood-group"
-              name="bloodGroup"
-              onChange={handleChange}
+              name="upazilla"
+              value={formData.upazilla}
+              onChange={(e) => {
+                handleChange(e);
+              }}
               className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
             >
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
+              {districtIdx+1 ? (
+                <option value={""}>Please select an upazilla</option>
+              ) : (
+                <option value={""}>Please select a zill first</option>
+              )}
+              {districtIdx+1 &&
+                divisiondistrict[divisionIdx].district[
+                  districtIdx
+                ].upazilla.map((upazilla, index) => (
+                  // eslint-disable-next-line react/jsx-key
+                  <option value={upazilla} key={index} ind={index}>
+                    {upazilla}
+                  </option>
+                ))}
             </select>
           </div>
 
