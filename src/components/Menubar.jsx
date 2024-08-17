@@ -15,9 +15,7 @@ const Menubar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="#about" className="hover:text-gray-400">
-                About Us
-              </a>
+              <Link to="AboutUs">About Us</Link>
             </li>
             <li>
               <Link to="Login">Login</Link>
