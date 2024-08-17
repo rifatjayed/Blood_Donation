@@ -9,6 +9,7 @@ import Login from "./components/pages/Login.jsx";
 import RegisterPage from "./components/pages/RegisterPage.jsx";
 import Hero from "./components/Hero.jsx";
 import AboutUs from "./components/pages/AboutUs.jsx";
+import BloodList from "./components/pages/BloodList.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Hero></Hero>,
+      },
+      {
+        path: "/bloodList",
+        element: <BloodList></BloodList>,
       },
       {
         path: "/aboutUs",

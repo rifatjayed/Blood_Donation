@@ -8,8 +8,8 @@ import divisionData from "../../assets/division";
 const RegisterPage = () => {
   // console.log(divisionData[0].district[0].district);
 
-  const [division, setDivision] = useState();
-  const [district, setDistrict] = useState();
+  const [divisionIdx, setDivisionIdx] = useState(-1);
+  const [districtIdx, setDistrictIdx] = useState(-1);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,23 +17,10 @@ const RegisterPage = () => {
     bloodGroup: "",
     lastDonate: Date.now(),
     birth: Date.now(),
-    division: "Barishal",
+    division: "",
     district: "",
     upazilla: "",
   });
-
-  useEffect(() => {
-    var result = divisionData.find(
-      (item) => item["division"] === formData.division
-    );
-    setDivision(result);
-    if (formData.district) {
-      var dis = division.district.find(
-        (item) => item["district"] === formData.district
-      );
-      setDistrict(dis);
-    }
-  }, [formData]);
 
   const handleChange = (e) => {
     setFormData({
@@ -205,14 +192,26 @@ const RegisterPage = () => {
               Division
             </label>
             <select
-              id="blood-group"
+              id="division"
               name="division"
-              onChange={handleChange}
+              value={formData.division}
+              onChange={(e) => {
+                setFormData({
+                  ...formData,
+                  division: e.target.value,
+                  district: "",
+                  upazilla: "",
+                });
+                setDistrictIdx(-1);
+                setDivisionIdx(e.target.selectedIndex - 1);
+              }}
               className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
             >
-              {divisionData.map((division) => (
-                // eslint-disable-next-line react/jsx-key
-                <option value={division.division}>{division.division}</option>
+              <option value={""}>Please select a division</option>
+              {divisionData.map((division, index) => (
+                <option value={division.division} key={index}>
+                  {division.division}
+                </option>
               ))}
             </select>
           </div>
@@ -222,15 +221,31 @@ const RegisterPage = () => {
               District
             </label>
             <select
-              id="blood-group"
+              id="district"
               name="district"
-              onChange={handleChange}
+              value={formData.district}
+              onChange={(e) => {
+                // handleChange(e);
+                setFormData({
+                  ...formData,
+                  district: e.target.value,
+                  upazilla: "",
+                });
+                setDistrictIdx(e.target.selectedIndex - 1);
+              }}
               className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
             >
-              {division &&
-                division.district.map((district) => (
-                  // eslint-disable-next-line react/jsx-key
-                  <option value={district.district}>{district.district}</option>
+              {divisionIdx == -1 ? (
+                <option value={""}>Please select a division first</option>
+              ) : (
+                <option value={""}>Please select a district</option>
+              )}
+
+              {divisionIdx !== -1 &&
+                divisionData[divisionIdx].district.map((district, index) => (
+                  <option value={district.district} key={index}>
+                    {district.district}
+                  </option>
                 ))}
             </select>
           </div>
@@ -240,16 +255,26 @@ const RegisterPage = () => {
               Upazilla
             </label>
             <select
-              id="blood-group"
+              id="upazilla"
               name="upazilla"
+              value={formData.upazilla}
               onChange={handleChange}
               className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
             >
-              {district &&
-                district.upazilla.map((upazilla) => (
-                  // eslint-disable-next-line react/jsx-key
-                  <option value={upazilla}>{upazilla}</option>
-                ))}
+              {districtIdx !== -1 ? (
+                <option value={""}>Please select an upazilla</option>
+              ) : (
+                <option value={""}>Please select a District first</option>
+              )}
+              {districtIdx !== -1 &&
+                divisionData[divisionIdx].district[districtIdx].upazilla.map(
+                  (upazilla, index) => (
+                    // eslint-disable-next-line react/jsx-key
+                    <option value={upazilla} key={index} ind={index}>
+                      {upazilla}
+                    </option>
+                  )
+                )}
             </select>
           </div>
 
