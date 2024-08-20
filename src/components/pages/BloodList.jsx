@@ -87,6 +87,8 @@ const BloodList = () => {
                 <span>{item.name}</span>
                 <span className="font-bold">Address:</span>{" "}
                 <span>{item.address}</span>
+                <span className="font-bold">Contact No:</span>{" "}
+                <span>{item.contactNo}</span>
                 <span className="font-bold">Gender:</span>{" "}
                 <span>{item.gender}</span>
                 <span className="font-bold">Blood Group:</span>{" "}

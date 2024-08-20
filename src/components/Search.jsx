@@ -25,13 +25,13 @@ const Search = () => {
 
   return (
     <div className="flex items-center justify-center  ">
-      <div className=" w-3/4	 bg-white p-8 rounded-lg shadow-md">
+      <div className=" w-5/6		 bg-white p-8 rounded-lg shadow-md">
         <form
           action=""
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 "
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 "
         >
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 text-left">
+            <label className="block font-roboto text-sm font-medium text-[#4D4D4D] text-left">
               Blood Group:
             </label>
             <select
@@ -52,7 +52,7 @@ const Search = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 text-left">
+            <label className="block text-sm font-medium font-roboto text-[#4D4D4D] text-left">
               Division
             </label>
             <select
@@ -83,7 +83,7 @@ const Search = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 text-left">
+            <label className="block text-sm font-medium font-roboto text-[#4D4D4D] text-left">
               Zila
             </label>
             <select
@@ -120,7 +120,7 @@ const Search = () => {
           </div>
 
           <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 text-left">
+            <label className="block text-sm font-medium font-roboto text-[#4D4D4D] text-left">
               Upzilla
             </label>
             <select
@@ -130,7 +130,7 @@ const Search = () => {
               onChange={(e) => {
                 handleChange(e);
               }}
-              className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
+              className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none  sm:text-sm"
             >
               {districtIdx + 1 ? (
                 <option value={""}>Please select an upazilla</option>
@@ -153,7 +153,7 @@ const Search = () => {
             <Link to="/bloodList">
               <button
                 type="submit"
-                className="w-full px-4 py-2 bg-[#c6414c] hover:bg-[#B30412] text-white font-semibold text-sm rounded-md shadow  focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
+                className="w-full px-4 py-2 bg-black font-roboto text-sm font-medium text-white rounded-lg"
               >
                 Search
               </button>

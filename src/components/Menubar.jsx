@@ -38,7 +38,7 @@ const Menubar = () => {
 
   return (
     <div>
-      <header className="bg-white text-[#c6414c] shadow-md">
+      <header className="bg-white text-black shadow-md">
         <nav className="container mx-auto flex justify-between items-center p-4">
           <div className="text-2xl font-semibold">MyApp</div>
 
@@ -69,30 +69,33 @@ const Menubar = () => {
 
           {/* Navigation Links */}
           <ul
-            className={`md:flex md:space-x-4 font-serif ${
+            className={`md:flex md:space-x-4 font-poppins text-2xl flex items-center justify-center ${
               isOpen ? "block" : "hidden"
             } md:block`}
           >
             <li className="p-2">
-              <Link to="/" className="hover:text-[#e42313]">
+              <Link to="/" className="">
                 Home
               </Link>
             </li>
             <li className="p-2">
-              <Link to="/AboutUs" className="hover:text-[#e42313]">
+              <Link to="/AboutUs" className="">
                 About Us
               </Link>
             </li>
+
             <li className="p-2">
-              <Link to="/Login" className="hover:text-[#e42313]">
-                Login
-              </Link>
-            </li>
-            <li className="p-2">
-              <Link to="/Register" className="hover:text-[#e42313]">
+              <Link to="/Register" className="">
                 Register
               </Link>
             </li>
+            <button className="border border-black rounded-lg py-2 px-16">
+              <li className="p-2">
+                <Link to="/Login" className="">
+                  Login
+                </Link>
+              </li>
+            </button>
           </ul>
         </nav>
       </header>
