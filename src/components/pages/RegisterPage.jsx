@@ -9,11 +9,12 @@ import axios from "axios";
 
 const RegisterPage = () => {
   // console.log(divisionData[0].district[0].district);
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [divisionIdx, setDivisionIdx] = useState(-1);
   const [districtIdx, setDistrictIdx] = useState(-1);
   const [formData, setFormData] = useState({
-    FastName: "",
+    firstName: "",
+    lastName: "",
     email: "",
     gender: "",
     bloodGroup: "",
@@ -34,6 +35,7 @@ const RegisterPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
+    setIsSubmitted(true);
     try {
       // Replace 'https://example.com/api' with your actual API endpoint
       const response = await axios.post(
@@ -85,7 +87,7 @@ const RegisterPage = () => {
                 <input
                   type="text"
                   id="name"
-                  name="name"
+                  name="firstName"
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none  "
                   required
@@ -102,7 +104,7 @@ const RegisterPage = () => {
                 <input
                   type="text"
                   id="name"
-                  name="name"
+                  name="lastName"
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none  "
                   required
@@ -155,6 +157,7 @@ const RegisterPage = () => {
                   id="blood-group"
                   name="bloodGroup"
                   onChange={handleChange}
+                  required
                   className="mt-1  w-full py-2 px-3 border bg-white border-gray-300  rounded-md shadow-sm focus:outline-none  sm:text-sm"
                 >
                   <option value="A+">A+</option>
@@ -183,6 +186,7 @@ const RegisterPage = () => {
                     value="Male"
                     onChange={handleChange}
                     className="form-radio h-4 w-4  border-gray-300 "
+                    required
                   />
                   <span className="ml-2 text-gray-700">Male</span>
                 </label>
@@ -216,6 +220,7 @@ const RegisterPage = () => {
                 Date Of Birth:
               </label>
               <DatePicker
+                required
                 className="w-full px-3 py-2 mb-4 ms-4 border border-gray-300 rounded-md focus:outline-none  "
                 selected={formData.birth}
                 //   onSelect={handleDateSelect}
@@ -359,6 +364,12 @@ const RegisterPage = () => {
               </button>
             </div>
           </form>
+
+          {isSubmitted && (
+            <div className="mt-4 p-4 bg-green-100 text-green-800 rounded">
+              Form submitted successfully!
+            </div>
+          )}
         </div>
       </div>
     </div>
