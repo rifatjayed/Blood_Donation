@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import divisiondistrict from "../assets/division";
 import { Link } from "react-router-dom";
 
+
 const Search = () => {
   const [divisionIdx, setDivisionIdx] = useState(-1);
   const [districtIdx, setDistrictIdx] = useState(-1);
@@ -19,9 +20,9 @@ const Search = () => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(formData);
-  console.log(divisionIdx);
-  console.log(districtIdx);
+  // console.log(formData);
+  // console.log(divisionIdx);
+  // console.log(districtIdx);
 
   return (
     <div className="flex items-center justify-center  ">
@@ -31,7 +32,7 @@ const Search = () => {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 "
         >
           <div className="mb-4">
-            <label className="block font-roboto text-sm font-medium text-[#4D4D4D] text-left">
+            <label className="block font-roboto text-sm font-medium  text-[#4D4D4D] text-left">
               Blood Group:
             </label>
             <select

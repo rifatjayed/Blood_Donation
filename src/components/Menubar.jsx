@@ -34,6 +34,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Menubar = () => {
+  const [active, setActive] = useState(""); // state to track the active menu item
+
+  const handleClick = (menuItem) => {
+    setActive(menuItem); // update the active menu item
+  };
+
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -69,33 +75,59 @@ const Menubar = () => {
 
           {/* Navigation Links */}
           <ul
-            className={`md:flex md:space-x-4 font-poppins text-2xl flex items-center justify-center ${
+            className={`md:flex md:space-x-4 font-poppins text-xl flex items-center justify-center ${
               isOpen ? "block" : "hidden"
             } md:block`}
           >
             <li className="p-2">
-              <Link to="/" className="">
+              <Link
+                to="/"
+                onClick={() => handleClick("home")}
+                className={`${
+                  active === "home"
+                    ? "underline underline-offset-8 decoration-[#4B4949]	decoration-4	"
+                    : ""
+                }`}
+              >
                 Home
               </Link>
             </li>
             <li className="p-2">
-              <Link to="/AboutUs" className="">
+              <Link
+                to="/AboutUs"
+                onClick={() => handleClick("aboutUs")}
+                className={`${
+                  active === "aboutUs"
+                    ? "underline underline-offset-8 decoration-[#4B4949]	decoration-4"
+                    : ""
+                }`}
+              >
                 About Us
               </Link>
             </li>
-
             <li className="p-2">
-              <Link to="/Register" className="">
+              <Link
+                to="/Register"
+                onClick={() => handleClick("register")}
+                className={`${
+                  active === "register"
+                    ? "underline underline-offset-8 decoration-[#4B4949]	decoration-4"
+                    : ""
+                }`}
+              >
                 Register
               </Link>
             </li>
-            <button className="border border-black rounded-lg py-2 px-16">
-              <li className="p-2">
-                <Link to="/Login" className="">
-                  Login
-                </Link>
-              </li>
-            </button>
+            <Link to="/Login">
+              <button
+                onClick={() => handleClick("login")}
+                className={`border border-black rounded-lg py-2 px-16${
+                  active === "login" ? " bg-[#6A0B37] text-white" : ""
+                }`}
+              >
+                <li className="p-2">Login</li>
+              </button>
+            </Link>
           </ul>
         </nav>
       </header>

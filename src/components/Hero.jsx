@@ -1,48 +1,105 @@
 import Search from "./Search";
 
+import BackgroundImg from "../assets/img/bggg.png";
+
 const Hero = () => {
   return (
     <div>
-      <section className="h-screen  flex items-center justify-center ">
-        <div className="p-8 text-right ">
-          <h3 className="text-[#3C3C3C] font-roboto font-bold text-5xl mb-5">
-            Save Life Donate <br /> Blood
-          </h3>
-          <p className="text-xl mb-16 ">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged.
+      <section className=" h-screen  ">
+        {/* grid grid-cols-3 */}
+        <div className=" flex ">
+          <div className="">
+            <img className="w-4/5" src={BackgroundImg} alt="" />
+          </div>
+          <div className="p-8 text-right w-[45%] mr-4">
+            <h3 className="text-[#3C3C3C] font-roboto font-bold text-5xl mb-5">
+              Save Life Donate <br /> Blood
+            </h3>
+            <p className="text-xl mb-16 ">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged.
+            </p>
+            <a
+              href="#learn-more"
+              className="bg-black font-roboto  text-white font-bold text-3xl py-4 px-9 rounded-lg"
+            >
+              Get Blood Now
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-[50px]  my-24">
+        <div className="mx-[50px] pb-20 pt-10">
+          <h2 className="font-roboto font-bold	text-4xl	my-[30px]">
+            Our Mission
+          </h2>
+          <p className="text-[#3C3C3C] font-roboto font-light ">
+            {/* "Our mission is to create a seamless platform where those in need of
+            blood can quickly connect with life-saving donors. We strive to
+            empower individuals to register as donors and contribute to a
+            healthier, more connected community, making blood donations more
+            accessible and efficient for everyone." */}
+            "Our mission is to create a seamless platform where those in need of
+            blood can quickly and easily connect with life-saving donors. We are
+            committed to making the process of finding and donating blood
+            stress-free, ensuring that no one faces a life-threatening situation
+            due to a lack of availability. By empowering users to register as
+            donors and collect vital data, we strive to build a supportive
+            network that fosters a spirit of solidarity and care. Our vision is
+            to create a community where every individual has the opportunity to
+            contribute to the cause of blood donation, making help accessible
+            when it’s needed the most."
+            <br />
+            <br />
+            Blood Donation is not for any single organization, but for the
+            benefit of all individuals, organizations. Its aim is to facilitate
+            blood donation by bringing blood donors and various organizations
+            related to blood donation on one platform. If you are also a blood
+            donor, register on the website.
           </p>
-          <a
-            href="#learn-more"
-            className="bg-black font-roboto  text-white font-bold text-3xl py-4 px-9 rounded-lg"
-          >
-            Get Blood Now
-          </a>
         </div>
       </section>
 
       <section className="mx-[50px]">
         <div className="mx-[50px]">
-          <h2 className="font-roboto font-bold	text-4xl	my-[30px]">
-            Our Mission
-          </h2>
-          <p className="text-[#3C3C3C] font-roboto font-light">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio
-            veniam, nemo beatae nobis aspernatur architecto iure provident sunt
-            voluptatum ipsa dolore totam possimus laudantium dolorum facere
-            voluptates consequatur non, temporibus laborum blanditiis error
-            inventore at doloribus laboriosam! Ad nulla porro incidunt placeat
-            quod quasi, ex accusamus modi aliquam voluptatem quis. Maxime eos,
-            qui tempora perspiciatis repellendus mollitia ratione doloribus
-            reiciendis at voluptatum totam ex fuga, id minima ad voluptate odio!
-          </p>
+          <h2 className="font-roboto font-bold	text-4xl	my-[30px]">Find Blood</h2>
+          <Search></Search>
         </div>
       </section>
-      <Search></Search>
+
+      <section className="mx-[50px] my-[100px]">
+        <div className="mx-[50px] flex justify-center items-center">
+          <div className="w-2/5">
+            <h2 className="font-roboto font-bold	text-4xl	my-[30px]">
+              Testimonials
+            </h2>
+          </div>
+          <div className="flex gap-4 w-3/5">
+            <div className="w-80 h-60 p-10 bg-white rounded-lg shadow-md ">
+              <h2>Name</h2>
+              <h5>Designation</h5>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Ratione minus hic minima itaque unde cupiditate?
+              </p>
+            </div>
+
+            <div className="w-80 h-60 p-10 bg-white rounded-lg shadow-md ">
+              <h2>Name</h2>
+              <h5>Designation</h5>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Ratione minus hic minima itaque unde cupiditate?
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
