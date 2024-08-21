@@ -72,9 +72,9 @@ const RegisterPage = () => {
           </h2>
         </div>
 
-        <div className="mx-10 p-6 shadow-lg">
+        <div className="md:mx-10 p-6 shadow-lg">
           <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-2 gap-24">
+            <div className="grid  md:grid-cols-2 md:gap-24">
               <div>
                 <label
                   className="text-sm font-medium font-roboto text-[#4D4D4D] mb-2 text-left"
@@ -110,7 +110,7 @@ const RegisterPage = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-24">
+            <div className="grid md:grid-cols-2 md:gap-24">
               <div>
                 <label
                   className=" text-sm font-medium font-roboto text-[#4D4D4D] mb-2 text-left"
@@ -146,7 +146,7 @@ const RegisterPage = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-24">
+            <div className="grid md:grid-cols-2 md:gap-24">
               <div className="mb-4">
                 <label className=" text-sm font-medium font-roboto text-[#4D4D4D] text-left">
                   Blood Group:
@@ -236,7 +236,7 @@ const RegisterPage = () => {
                 Last Donate:
               </label>
               <DatePicker
-                className="w-full px-3 py-2 mb-4 ms-4 border border-gray-300 rounded-md focus:outline-none  focus:border-red-500"
+                className="w-full md:px-3 py-2 mb-4 ms-4 border border-gray-300 rounded-md focus:outline-none  focus:border-red-500"
                 selected={formData.lastDonate}
                 //   onSelect={handleDateSelect}
                 onChange={(date) => {
@@ -248,7 +248,7 @@ const RegisterPage = () => {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-24">
+            <div className="grid md:grid-cols-2 md:gap-24">
               <div className="mb-4">
                 <label className=" text-sm font-medium font-roboto text-[#4D4D4D] text-left">
                   Division:
@@ -315,7 +315,7 @@ const RegisterPage = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-24">
+            <div className="grid md:grid-cols-2 md:gap-24">
               <div className="mb-4">
                 <label className="text-sm font-medium font-roboto text-[#4D4D4D] text-left">
                   Upazilla:
@@ -347,7 +347,7 @@ const RegisterPage = () => {
               <div></div>
             </div>
 
-            <div className="mt-6 flex justify-end ">
+            <div className="mt-6 flex md:justify-end justify-center ">
               <button
                 type="submit"
                 className="flex  border drop-shadow-lg px-12 py-3 font-roboto  text-black font-bold text-sm rounded-lg"

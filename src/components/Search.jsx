@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import divisiondistrict from "../assets/division";
 import { Link } from "react-router-dom";
 
-
 const Search = () => {
   const [divisionIdx, setDivisionIdx] = useState(-1);
   const [districtIdx, setDistrictIdx] = useState(-1);
@@ -26,7 +25,7 @@ const Search = () => {
 
   return (
     <div className="flex items-center justify-center  ">
-      <div className=" w-5/6		 bg-white p-8 rounded-lg shadow-md">
+      <div className=" md:w-5/6		 bg-white p-4 md:p-8 rounded-lg shadow-md">
         <form
           action=""
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 "

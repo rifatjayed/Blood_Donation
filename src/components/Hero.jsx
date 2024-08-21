@@ -5,13 +5,13 @@ import BackgroundImg from "../assets/img/bggg.png";
 const Hero = () => {
   return (
     <div>
-      <section className=" h-screen  ">
+      <section className=" h-screen  my-12">
         {/* grid grid-cols-3 */}
         <div className=" flex ">
-          <div className="">
+          <div className="hidden md:block">
             <img className="w-4/5" src={BackgroundImg} alt="" />
           </div>
-          <div className="p-8 text-right w-[45%] mr-4">
+          <div className="p-8 text-left md:text-right w-full md:w-[45%]  mr-4">
             <h3 className="text-[#3C3C3C] font-roboto font-bold text-5xl mb-5">
               Save Life Donate <br /> Blood
             </h3>
@@ -25,7 +25,7 @@ const Hero = () => {
             </p>
             <a
               href="#learn-more"
-              className="bg-black font-roboto  text-white font-bold text-3xl py-4 px-9 rounded-lg"
+              className="bg-black font-roboto  text-white font-bold text-3xl py-1 px-4 md:py-4 md:px-9 rounded-lg"
             >
               Get Blood Now
             </a>
@@ -33,17 +33,12 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="mx-[50px]  my-24">
+      <section className="mx-2 md:mx-[50px]  my-24 ">
         <div className="mx-[50px] pb-20 pt-10">
           <h2 className="font-roboto font-bold	text-4xl	my-[30px]">
             Our Mission
           </h2>
           <p className="text-[#3C3C3C] font-roboto font-light ">
-            {/* "Our mission is to create a seamless platform where those in need of
-            blood can quickly connect with life-saving donors. We strive to
-            empower individuals to register as donors and contribute to a
-            healthier, more connected community, making blood donations more
-            accessible and efficient for everyone." */}
             "Our mission is to create a seamless platform where those in need of
             blood can quickly and easily connect with life-saving donors. We are
             committed to making the process of finding and donating blood
@@ -65,21 +60,21 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="mx-[50px]">
+      <section className="md:mx-[50px]">
         <div className="mx-[50px]">
           <h2 className="font-roboto font-bold	text-4xl	my-[30px]">Find Blood</h2>
           <Search></Search>
         </div>
       </section>
 
-      <section className="mx-[50px] my-[100px]">
-        <div className="mx-[50px] flex justify-center items-center">
-          <div className="w-2/5">
-            <h2 className="font-roboto font-bold	text-4xl	my-[30px]">
+      <section className="md:mx-[50px] md:my-[100px]">
+        <div className="md:mx-[50px] md:flex md:justify-center md:items-center overflow-hidden ">
+          <div className="w-full md:w-2/5 ">
+            <h2 className="font-roboto font-bold	text-4xl	my-[30px]  flex justify-center items-center md:justify-start">
               Testimonials
             </h2>
           </div>
-          <div className="flex gap-4 w-3/5">
+          <div className="flex flex-col md:flex-row gap-8 md:w-3/5">
             <div className="w-80 h-60 p-10 bg-white rounded-lg shadow-md ">
               <h2>Name</h2>
               <h5>Designation</h5>
@@ -96,6 +91,26 @@ const Hero = () => {
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Ratione minus hic minima itaque unde cupiditate?
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="md:mx-[50px] md:my-16">
+        <div className="mx-[50px]">
+          <h2 className="font-roboto font-bold	text-4xl	my-[30px] sm:flex sm:justify-center sm:items-center md:justify-start">
+            Blog
+          </h2>
+
+          <div className="grid md:grid-cols-3 md:gap-4">
+            <div className="w-80 h-96 bg-white rounded-lg shadow-md p-4">
+              This is blog 1
+            </div>
+            <div className="w-80 h-96 bg-white rounded-lg shadow-md p-4">
+              This is blog 2
+            </div>
+            <div className="w-80 h-96 bg-white rounded-lg shadow-md p-4">
+              This is blog 3
             </div>
           </div>
         </div>
