@@ -5,7 +5,7 @@ import BackgroundImg from "../assets/img/bggg.png";
 const Hero = () => {
   return (
     <div>
-      <section className=" h-screen  my-12">
+      <section className=" md:h-screen  ">
         {/* grid grid-cols-3 */}
         <div className=" flex ">
           <div className="hidden md:block">
@@ -33,9 +33,9 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="mx-2 md:mx-[50px]  my-24 ">
-        <div className="mx-[50px] pb-20 pt-10">
-          <h2 className="font-roboto font-bold	text-4xl	my-[30px]">
+      <section className="mx-5 md:mx-[50px]  my-24 ">
+        <div className="mx-2 md:mx-[50px] md:pb-20 md:pt-10">
+          <h2 className="font-roboto font-bold	text-4xl	my-[30px] ">
             Our Mission
           </h2>
           <p className="text-[#3C3C3C] font-roboto font-light ">
@@ -62,7 +62,9 @@ const Hero = () => {
 
       <section className="md:mx-[50px]">
         <div className="mx-[50px]">
-          <h2 className="font-roboto font-bold	text-4xl	my-[30px]">Find Blood</h2>
+          <h2 className="font-roboto font-bold flex justify-center items-center md:justify-start text-4xl	my-[30px]">
+            Find Blood
+          </h2>
           <Search></Search>
         </div>
       </section>
@@ -74,7 +76,7 @@ const Hero = () => {
               Testimonials
             </h2>
           </div>
-          <div className="flex flex-col md:flex-row gap-8 md:w-3/5">
+          <div className="flex flex-col md:flex-row gap-8 md:w-3/5 justify-center items-center">
             <div className="w-80 h-60 p-10 bg-white rounded-lg shadow-md ">
               <h2>Name</h2>
               <h5>Designation</h5>
@@ -96,20 +98,20 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="md:mx-[50px] md:my-16">
+      <section className="md:ms-[50px] md:my-16">
         <div className="mx-[50px]">
           <h2 className="font-roboto font-bold	text-4xl	my-[30px] sm:flex sm:justify-center sm:items-center md:justify-start">
             Blog
           </h2>
 
-          <div className="grid md:grid-cols-3 md:gap-4">
-            <div className="w-80 h-96 bg-white rounded-lg shadow-md p-4">
+          <div className="grid md:grid-cols-3 md:gap-4 ">
+            <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
               This is blog 1
             </div>
-            <div className="w-80 h-96 bg-white rounded-lg shadow-md p-4">
+            <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
               This is blog 2
             </div>
-            <div className="w-80 h-96 bg-white rounded-lg shadow-md p-4">
+            <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
               This is blog 3
             </div>
           </div>
