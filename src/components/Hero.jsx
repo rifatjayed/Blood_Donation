@@ -1,4 +1,9 @@
 import Search from "./Search";
+import userImg from "../assets/img/user.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
 
 import BackgroundImg from "../assets/img/bggg.png";
 
@@ -35,7 +40,7 @@ const Hero = () => {
 
       <section className="mx-5 md:mx-[50px]  my-24 ">
         <div className="mx-2 md:mx-[50px] md:pb-20 md:pt-10">
-          <h2 className="font-roboto font-bold	text-4xl	my-[30px] ">
+          <h2 className="text-center md:text-left	 font-roboto font-bold	text-4xl	my-[30px] ">
             Our Mission
           </h2>
           <p className="text-[#3C3C3C] font-roboto font-light ">
@@ -70,42 +75,129 @@ const Hero = () => {
       </section>
 
       <section className="md:mx-[50px] md:my-[100px]">
-        <div className="md:mx-[50px] md:flex md:justify-center md:items-center overflow-hidden ">
+        <div className="md:mx-[50px]  md:flex md:justify-center md:items-center overflow-hidden ">
           <div className="w-full md:w-2/5 ">
             <h2 className="font-roboto font-bold	text-4xl	my-[30px]  flex justify-center items-center md:justify-start">
               Testimonials
             </h2>
           </div>
-          <div className="flex flex-col md:flex-row gap-8 md:w-3/5 justify-center items-center">
-            <div className="w-80 h-60 p-10 bg-white rounded-lg shadow-md ">
+          <div className="md:flex  md:flex-row gap-8 md:w-3/5 justify-center items-center">
+            {/* <div className="w-80 h-60 p-10 bg-white rounded-lg shadow-md ">
               <h2>Name</h2>
               <h5>Designation</h5>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Ratione minus hic minima itaque unde cupiditate?
               </p>
-            </div>
+            </div> */}
 
-            <div className="w-80 h-60 p-10 bg-white rounded-lg shadow-md ">
+            {/* <div className="w-80 h-60 p-10 bg-white rounded-lg shadow-md ">
               <h2>Name</h2>
               <h5>Designation</h5>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Ratione minus hic minima itaque unde cupiditate?
               </p>
-            </div>
+            </div> */}
+            <Swiper
+              spaceBetween={50}
+              // slidesPerView={2}
+              breakpoints={{
+                // When the window width is >= 640px (small devices)
+                640: {
+                  slidesPerView: 1,
+                },
+                // When the window width is >= 768px (medium devices)
+                768: {
+                  slidesPerView: 2,
+                },
+              }}
+              onSlideChange={() => console.log("slide change")}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              <SwiperSlide className="">
+                <div className=" w-80 h-64 p-10 white rounded-lg shadow-lg mb-10 ">
+                  <div className="flex items-center ">
+                    <div className="w-14 mr-4">
+                      <img src={userImg} alt="" />
+                    </div>
+                    <div>
+                      <h2>Name</h2>
+                      <h5>Designation</h5>
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ratione minus hic minima itaque unde cupiditate?
+                  </p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="">
+                <div className="w-80 h-64 p-10 bgwhite rounded-lg shadow-lg mb-10">
+                  <div className="flex items-center ">
+                    <div className="w-14 mr-4">
+                      <img src={userImg} alt="" />
+                    </div>
+                    <div>
+                      <h2>Name</h2>
+                      <h5>Designation</h5>
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ratione minus hic minima itaque unde cupiditate?
+                  </p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="">
+                <div className="w-80 h-64 p-10 bg-white rounded-lg shadow-lg mb-10">
+                  <div className="flex items-center ">
+                    <div className="w-14 mr-4">
+                      <img src={userImg} alt="" />
+                    </div>
+                    <div>
+                      <h2>Name</h2>
+                      <h5>Designation</h5>
+                    </div>
+                  </div>
+
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ratione minus hic minima itaque unde cupiditate?
+                  </p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="">
+                <div className="w-80 h-64 p-10 bg-white rounded-lg shadow-lg mb-10">
+                  <div className="flex items-center ">
+                    <div className="w-14 mr-4">
+                      <img src={userImg} alt="" />
+                    </div>
+                    <div>
+                      <h2>Name</h2>
+                      <h5>Designation</h5>
+                    </div>
+                  </div>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ratione minus hic minima itaque unde cupiditate?
+                  </p>
+                </div>
+              </SwiperSlide>
+            </Swiper>
           </div>
         </div>
       </section>
 
-      <section className="md:ms-[50px] md:my-16">
+      <section className="md:ms-[50px] my-16">
         <div className="mx-[50px]">
-          <h2 className="font-roboto font-bold	text-4xl	my-[30px] sm:flex sm:justify-center sm:items-center md:justify-start">
+          <h2 className="font-roboto font-bold	text-4xl	my-[30px] text-center md:text-left ">
             Blog
           </h2>
 
-          <div className="grid md:grid-cols-3 md:gap-4 ">
-            <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
+          <div className=" ">
+            {/* grid md:grid-cols-3 md:gap-4 */}
+            {/* <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
               This is blog 1
             </div>
             <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
@@ -113,7 +205,58 @@ const Hero = () => {
             </div>
             <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
               This is blog 3
-            </div>
+            </div> */}
+
+            <Swiper
+              spaceBetween={50}
+              // slidesPerView={2}
+              breakpoints={{
+                // When the window width is >= 640px (small devices)
+                640: {
+                  slidesPerView: 1,
+                },
+                // When the window width is >= 768px (medium devices)
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
+              onSlideChange={() => console.log("slide change")}
+              onSwiper={(swiper) => console.log(swiper)}
+            >
+              <SwiperSlide className="">
+                <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
+                  This is blog 1
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="">
+                <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
+                  This is blog 2
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="">
+                <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
+                  This is blog 3
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="">
+                <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
+                  This is blog 4
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="">
+                <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
+                  This is blog 5
+                </div>
+              </SwiperSlide>
+              <SwiperSlide className="">
+                <div className="md:w-80 h-96 mb-4 bg-white rounded-lg shadow-md p-4">
+                  This is blog 6
+                </div>
+              </SwiperSlide>
+            </Swiper>
           </div>
         </div>
       </section>

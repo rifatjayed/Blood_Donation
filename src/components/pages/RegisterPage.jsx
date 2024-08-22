@@ -9,13 +9,14 @@ import axios from "axios";
 
 const RegisterPage = () => {
   // console.log(divisionData[0].district[0].district);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [divisionIdx, setDivisionIdx] = useState(-1);
   const [districtIdx, setDistrictIdx] = useState(-1);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
+    mobileNumber: "",
     gender: "",
     bloodGroup: "",
     lastDonate: Date.now(),
@@ -23,6 +24,8 @@ const RegisterPage = () => {
     division: "",
     district: "",
     upazilla: "",
+    password: "",
+    confirmPass: "",
   });
 
   const handleChange = (e) => {
@@ -35,18 +38,15 @@ const RegisterPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
-    setIsSubmitted(true);
+    setShowModal(true);
     try {
-      // Replace 'https://example.com/api' with your actual API endpoint
       const response = await axios.post(
-        "https://blood-donation-backend-ochre.vercel.app/api/v1/auth/register",
+        "http://localhost:5000/api/v1/auth/register",
         formData
       );
       console.log("Form submitted successfully:", response.data);
-      // You can add any success message or redirect the user after submission
     } catch (error) {
       console.error("Error submitting form:", error);
-      // Handle the error as needed (e.g., showing an error message to the user)
     }
   };
 
@@ -140,7 +140,7 @@ const RegisterPage = () => {
                 <input
                   type="text"
                   id="number"
-                  name="number"
+                  name="mobileNumber"
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none  "
                   required
@@ -352,6 +352,42 @@ const RegisterPage = () => {
               <div></div>
             </div>
 
+            <div className="grid  md:grid-cols-2 md:gap-24">
+              <div>
+                <label
+                  className="text-sm font-medium font-roboto text-[#4D4D4D] mb-2 text-left"
+                  htmlFor=""
+                >
+                  Password:
+                </label>
+                <input
+                  type="password"
+                  id="name"
+                  name="password"
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none  "
+                  required
+                />
+              </div>
+
+              <div>
+                <label
+                  className="text-sm font-medium font-roboto text-[#4D4D4D] mb-2 text-left"
+                  htmlFor=""
+                >
+                  Confirm Password:
+                </label>
+                <input
+                  type="password"
+                  id="name"
+                  name="confirmPass"
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none  "
+                  required
+                />
+              </div>
+            </div>
+
             <div className="mt-6 flex md:justify-end justify-center ">
               <button
                 type="submit"
@@ -365,9 +401,26 @@ const RegisterPage = () => {
             </div>
           </form>
 
-          {isSubmitted && (
+          {/* {isSubmitted && (
             <div className="mt-4 p-4 bg-green-100 text-green-800 rounded">
               Form submitted successfully!
+            </div>
+          )} */}
+
+          {showModal && (
+            <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+              <div className="bg-white p-8 rounded shadow-lg text-center">
+                <h2 className="text-2xl font-bold mb-4">Success!</h2>
+                <p className="text-gray-700 mb-6">
+                  Your form has been submitted successfully.
+                </p>
+                <button
+                  className="bg-[#6A0B37] text-white py-2 px-4 rounded"
+                  onClick={() => setShowModal(false)}
+                >
+                  Close
+                </button>
+              </div>
             </div>
           )}
         </div>
