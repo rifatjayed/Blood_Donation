@@ -1,35 +1,3 @@
-// import { Link } from "react-router-dom";
-
-// const Menubar = () => {
-//   return (
-//     <div>
-//       {/* <nav className="bg-[#e42313]">
-
-//       </nav> */}
-
-//       <header className="bg-white text-[#c6414c]">
-//         <nav className="container mx-auto flex justify-between items-center p-4">
-//           <div className="text-2xl font-semibold">MyApp</div>
-//           <ul className="flex space-x-4 font-serif">
-//             <li>
-//               <Link to="/">Home</Link>
-//             </li>
-//             <li>
-//               <Link to="AboutUs">About Us</Link>
-//             </li>
-//             <li>
-//               <Link to="Login">Login</Link>
-//             </li>
-//             <li>
-//               <Link to="Register">Register</Link>
-//             </li>
-//           </ul>
-//         </nav>
-//       </header>
-//     </div>
-//   );
-// };
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -75,7 +43,7 @@ const Menubar = () => {
 
           {/* Navigation Links */}
           <ul
-            className={`md:flex md:space-x-4 font-poppins text-xl flex items-center justify-center ${
+            className={`md:flex md:space-x-4 font-poppins text-xl flex flex-col items-center justify-center ${
               isOpen ? "block" : "hidden"
             } md:block`}
           >
@@ -121,7 +89,7 @@ const Menubar = () => {
             <Link to="/Login">
               <button
                 onClick={() => handleClick("login")}
-                className={`border border-black rounded-lg py-2 px-16${
+                className={`border border-black rounded-lg md:py-2 px-4 md:px-16${
                   active === "login" ? " bg-[#6A0B37] text-white" : ""
                 }`}
               >
