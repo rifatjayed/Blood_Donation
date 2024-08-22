@@ -52,9 +52,7 @@ const RegisterPage = () => {
 
   return (
     <div className=" 	">
-      {/* flex items-center justify-center min-h-screen bg-gray-100 */}
       <div className=" bg-white rounded-lg  ">
-        {/* max-w-md w-full */}
         <div
           className="bg-gradient-to-l"
           style={{
@@ -400,12 +398,6 @@ const RegisterPage = () => {
               </button>
             </div>
           </form>
-
-          {/* {isSubmitted && (
-            <div className="mt-4 p-4 bg-green-100 text-green-800 rounded">
-              Form submitted successfully!
-            </div>
-          )} */}
 
           {showModal && (
             <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">

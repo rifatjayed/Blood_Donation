@@ -116,7 +116,7 @@ const Hero = () => {
               onSwiper={(swiper) => console.log(swiper)}
             >
               <SwiperSlide className="">
-                <div className=" w-80 h-64 p-10 white rounded-lg shadow-lg mb-10 ">
+                <div className=" md:w-80 mx-5 md:mx-0 h-64 p-10 white rounded-lg shadow-lg mb-10 ">
                   <div className="flex items-center ">
                     <div className="w-14 mr-4">
                       <img src={userImg} alt="" />
@@ -133,7 +133,7 @@ const Hero = () => {
                 </div>
               </SwiperSlide>
               <SwiperSlide className="">
-                <div className="w-80 h-64 p-10 bgwhite rounded-lg shadow-lg mb-10">
+                <div className="md:w-80 mx-5 md:mx-0 h-64 p-10 bgwhite rounded-lg shadow-lg mb-10">
                   <div className="flex items-center ">
                     <div className="w-14 mr-4">
                       <img src={userImg} alt="" />
@@ -150,7 +150,7 @@ const Hero = () => {
                 </div>
               </SwiperSlide>
               <SwiperSlide className="">
-                <div className="w-80 h-64 p-10 bg-white rounded-lg shadow-lg mb-10">
+                <div className="md:w-80 mx-5 md:mx-0 h-64 p-10 bg-white rounded-lg shadow-lg mb-10">
                   <div className="flex items-center ">
                     <div className="w-14 mr-4">
                       <img src={userImg} alt="" />
@@ -168,7 +168,7 @@ const Hero = () => {
                 </div>
               </SwiperSlide>
               <SwiperSlide className="">
-                <div className="w-80 h-64 p-10 bg-white rounded-lg shadow-lg mb-10">
+                <div className="md:w-80 mx-5 md:mx-0 h-64 p-10 bg-white rounded-lg shadow-lg mb-10">
                   <div className="flex items-center ">
                     <div className="w-14 mr-4">
                       <img src={userImg} alt="" />
