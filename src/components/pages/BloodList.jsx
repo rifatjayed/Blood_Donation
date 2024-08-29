@@ -1,19 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Search from "../Search";
+import axios from "axios";
+
+import dateFormat, { masks } from "dateformat";
 
 const BloodList = () => {
-  const data = [
-    {
-      id: 1,
-      name: "John Doe",
-      address: "Bogura, Sherpur",
-      contactNo: "01639811851",
-      gender: "Male",
-      bloodGroup: "A+",
-      lastDonationDate: "10-12-24",
-    },
-  ];
-  useEffect(() => {}, []);
+  const [userData, setUserData] = useState([]);
+
+  const allData = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/api/v1/all");
+      //push data to my local state
+      console.log(response);
+      setUserData(response.data.data);
+      // console.log("Form submitted successfully:", response.data);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+
+  useEffect(() => {
+    allData();
+  }, []);
   return (
     <div className="container mx-auto mt-10">
       <Search></Search>
@@ -45,15 +53,17 @@ const BloodList = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((item) => (
+            {userData.map((item) => (
               <tr key={item.id} className="border-b border-gray-200">
                 <td className="py-2 px-4">{item.id}</td>
-                <td className="py-2 px-4">{item.name}</td>
-                <td className="py-2 px-4">{item.address}</td>
-                <td className="py-2 px-4">{item.contactNo}</td>
+                <td className="py-2 px-4">{item.firstName}</td>
+                <td className="py-2 px-4">{`${item.upazilla}, ${item.district}, ${item.division}`}</td>
+                <td className="py-2 px-4">{item.mobileNumber}</td>
                 <td className="py-2 px-4">{item.gender}</td>
                 <td className="py-2 px-4">{item.bloodGroup}</td>
-                <td className="py-2 px-4">{item.lastDonationDate}</td>
+                <td className="py-2 px-4">
+                  {dateFormat(item.lastDonationDate, "longDate")}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -61,7 +71,7 @@ const BloodList = () => {
 
         {/* Mobile view */}
         <div className="sm:hidden p-2 ">
-          {data.map((item) => (
+          {userData.map((item) => (
             <div key={item.id} className="border p-4 m-8 rounded-lg shadow-md">
               <div className="flex flex-col">
                 <span className="font-bold">SI:</span> <span>{item.id}</span>
@@ -76,7 +86,7 @@ const BloodList = () => {
                 <span className="font-bold">Blood Group:</span>{" "}
                 <span>{item.bloodGroup}</span>
                 <span className="font-bold">Last Donation Date:</span>{" "}
-                <span>{item.lastDonationDate}</span>
+                <span>{dateFormat(item.lastDonationDate, "fullDate")}</span>
               </div>
             </div>
           ))}
