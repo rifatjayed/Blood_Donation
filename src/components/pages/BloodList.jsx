@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Search from "../Search";
 
 const BloodList = () => {
@@ -12,26 +12,8 @@ const BloodList = () => {
       bloodGroup: "A+",
       lastDonationDate: "10-12-24",
     },
-    {
-      id: 2,
-      name: "Rifat",
-      address: "Bogura, Sherpur",
-      contactNo: "01639811851",
-      gender: "Male",
-      bloodGroup: "A+",
-      lastDonationDate: "10-12-24",
-    },
-    {
-      id: 3,
-      name: "jayed",
-      address: "Bogura, Sherpur",
-      contactNo: "01639811851",
-      gender: "Male",
-      bloodGroup: "A+",
-      lastDonationDate: "10-12-24",
-    },
   ];
-
+  useEffect(() => {}, []);
   return (
     <div className="container mx-auto mt-10">
       <Search></Search>

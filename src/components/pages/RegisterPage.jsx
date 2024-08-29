@@ -31,13 +31,14 @@ const RegisterPage = () => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
+
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData);
+    // console.log(formData);
     setShowModal(true);
     try {
       const response = await axios.post(
@@ -86,6 +87,7 @@ const RegisterPage = () => {
                   type="text"
                   id="name"
                   name="firstName"
+                  value={formData.firstName}
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none  "
                   required
@@ -103,6 +105,7 @@ const RegisterPage = () => {
                   type="text"
                   id="name"
                   name="lastName"
+                  value={formData.lastName}
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none  "
                   required
@@ -122,6 +125,7 @@ const RegisterPage = () => {
                   type="email"
                   id="email"
                   name="email"
+                  value={formData.email}
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none  "
                   required
@@ -139,6 +143,7 @@ const RegisterPage = () => {
                   type="text"
                   id="number"
                   name="mobileNumber"
+                  value={formData.mobileNumber}
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none  "
                   required
@@ -154,6 +159,7 @@ const RegisterPage = () => {
                 <select
                   id="blood-group"
                   name="bloodGroup"
+                  value={formData.bloodGroup}
                   onChange={handleChange}
                   required
                   className="mt-1  w-full py-2 px-3 border bg-white border-gray-300  rounded-md shadow-sm focus:outline-none  sm:text-sm"
@@ -362,6 +368,7 @@ const RegisterPage = () => {
                   type="password"
                   id="name"
                   name="password"
+                  value={formData.password}
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none  "
                   required
@@ -379,6 +386,7 @@ const RegisterPage = () => {
                   type="password"
                   id="name"
                   name="confirmPass"
+                  value={formData.confirmPass}
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none  "
                   required
@@ -408,7 +416,30 @@ const RegisterPage = () => {
                 </p>
                 <button
                   className="bg-[#6A0B37] text-white py-2 px-4 rounded"
-                  onClick={() => setShowModal(false)}
+                  onClick={() => {
+                    setShowModal(false);
+                    //function
+
+                    setFormData({
+                      firstName: "",
+                      lastName: "",
+                      email: "",
+                      mobileNumber: "",
+                      gender: "",
+                      bloodGroup: "",
+                      lastDonate: Date.now(),
+                      birth: Date.now(),
+                      division: "",
+                      district: "",
+                      upazilla: "",
+                      password: "",
+                      confirmPass: "",
+                    });
+                    setDistrictIdx(-1);
+                    setDivisionIdx(-1);
+                    // console.log(formData);
+                    // console.log(`I ama here`);
+                  }}
                 >
                   Close
                 </button>

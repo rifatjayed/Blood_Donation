@@ -43,7 +43,7 @@ const Menubar = () => {
 
           {/* Navigation Links */}
           <ul
-            className={`md:flex md:space-x-4 font-poppins text-xl flex flex-col items-center justify-center ${
+            className={`md:flex md:space-x-4 font-poppins text-xl flex flex-col md:flex-row items-center justify-center ${
               isOpen ? "block" : "hidden"
             } md:block`}
           >
