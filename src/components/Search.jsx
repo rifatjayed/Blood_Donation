@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import divisiondistrict from "../assets/division";
 import { Link } from "react-router-dom";
 
-const Search = ({ onSearchDataChange, onHandleSubmit }) => {
+const Search = ({ onHandleSubmit, searchData }) => {
   const [divisionIdx, setDivisionIdx] = useState(-1);
   const [districtIdx, setDistrictIdx] = useState(-1);
   const [formData, setFormData] = useState({
@@ -19,18 +19,18 @@ const Search = ({ onSearchDataChange, onHandleSubmit }) => {
       [e.target.name]: e.target.value,
     };
     setFormData(updatedData);
-    onSearchDataChange(updatedData);
   };
-  // console.log(formData);
-  // console.log(divisionIdx);
-  // console.log(districtIdx);
+  useEffect(() => {
+    searchData && setFormData(searchData);
+    // console.log(searchData);
+  }, []);
 
   return (
     <div className="flex items-center justify-center  ">
       <div className=" md:w-5/6		 bg-white p-4 md:p-8 rounded-lg shadow-md">
         <form
-          onSubmit={() => {
-            console.log("formdata: ", formData);
+          onSubmit={(e) => {
+            e.preventDefault();
             onHandleSubmit(formData);
           }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 "
@@ -42,6 +42,7 @@ const Search = ({ onSearchDataChange, onHandleSubmit }) => {
             <select
               id="blood-group"
               name="bloodGroup"
+              value={formData.bloodGroup}
               onChange={handleChange}
               className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
             >
@@ -73,7 +74,6 @@ const Search = ({ onSearchDataChange, onHandleSubmit }) => {
                   upazilla: "",
                 };
                 setFormData(updatedData);
-                onSearchDataChange(updatedData);
 
                 setDistrictIdx(-1);
                 setDivisionIdx(e.target.selectedIndex - 1);
@@ -106,7 +106,7 @@ const Search = ({ onSearchDataChange, onHandleSubmit }) => {
                   upazilla: "",
                 };
                 setFormData(updatedData);
-                onSearchDataChange(updatedData);
+
                 setDistrictIdx(e.target.selectedIndex - 1);
               }}
               className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
