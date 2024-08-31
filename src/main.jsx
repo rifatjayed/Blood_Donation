@@ -37,6 +37,11 @@ const router = createBrowserRouter([
         path: "/Register",
         element: <RegisterPage></RegisterPage>,
       },
+      ,
+      {
+        path: "/BloodList",
+        element: <BloodList></BloodList>,
+      },
     ],
   },
 ]);

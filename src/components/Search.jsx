@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import divisiondistrict from "../assets/division";
 import { Link } from "react-router-dom";
 
-const Search = () => {
+const Search = ({ onSearchDataChange, onHandleSubmit }) => {
   const [divisionIdx, setDivisionIdx] = useState(-1);
   const [districtIdx, setDistrictIdx] = useState(-1);
   const [formData, setFormData] = useState({
@@ -14,10 +14,12 @@ const Search = () => {
 
   const handleChange = (e) => {
     // console.log(e.target);
-    setFormData({
+    const updatedData = {
       ...formData,
       [e.target.name]: e.target.value,
-    });
+    };
+    setFormData(updatedData);
+    onSearchDataChange(updatedData);
   };
   // console.log(formData);
   // console.log(divisionIdx);
@@ -27,7 +29,10 @@ const Search = () => {
     <div className="flex items-center justify-center  ">
       <div className=" md:w-5/6		 bg-white p-4 md:p-8 rounded-lg shadow-md">
         <form
-          action=""
+          onSubmit={() => {
+            console.log("formdata: ", formData);
+            onHandleSubmit(formData);
+          }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 "
         >
           <div className="mb-4">
@@ -61,12 +66,15 @@ const Search = () => {
               value={formData.division}
               onChange={(e) => {
                 // handleChange(e);
-                setFormData({
+                const updatedData = {
                   ...formData,
                   division: e.target.value,
                   district: "",
                   upazilla: "",
-                });
+                };
+                setFormData(updatedData);
+                onSearchDataChange(updatedData);
+
                 setDistrictIdx(-1);
                 setDivisionIdx(e.target.selectedIndex - 1);
               }}
@@ -92,11 +100,13 @@ const Search = () => {
               value={formData.district}
               onChange={(e) => {
                 // handleChange(e);
-                setFormData({
+                const updatedData = {
                   ...formData,
                   district: e.target.value,
                   upazilla: "",
-                });
+                };
+                setFormData(updatedData);
+                onSearchDataChange(updatedData);
                 setDistrictIdx(e.target.selectedIndex - 1);
               }}
               className="mt-1  w-full py-2 px-3 border border-gray-300  rounded-md shadow-sm focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm"
@@ -150,14 +160,12 @@ const Search = () => {
           </div>
 
           <div className="mt-6">
-            <Link to="/bloodList">
-              <button
-                type="submit"
-                className="w-full px-4 py-2 bg-black font-roboto text-sm font-medium text-white rounded-lg"
-              >
-                Search
-              </button>
-            </Link>
+            <button
+              type="submit"
+              className="w-full px-4 py-2 bg-black font-roboto text-sm font-medium text-white rounded-lg"
+            >
+              Search
+            </button>
           </div>
         </form>
       </div>

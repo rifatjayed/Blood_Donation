@@ -6,25 +6,54 @@ import dateFormat, { masks } from "dateformat";
 
 const BloodList = () => {
   const [userData, setUserData] = useState([]);
+  const [searchData, setSearchData] = useState({
+    bloodGroup: "",
+    division: "",
+    district: "",
+    upazilla: "",
+  });
 
-  const allData = async () => {
+  const handleSearchData = (formData) => {
+    setSearchData(formData);
+  };
+
+  const handleSubmit = async (formData) => {
+    console.log(formData);
+    console.log("i am here");
     try {
       const response = await axios.get("http://localhost:5000/api/v1/all");
-      //push data to my local state
-      console.log(response);
+      //Push data to my local state
+      // , {
+      //   params: formData,
+      // }
+      // console.log(response.data.data);
       setUserData(response.data.data);
-      // console.log("Form submitted successfully:", response.data);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   };
 
+  // const allData = async () => {
+  //   try {
+  //     const response = await axios.get("http://localhost:5000/api/v1/all");
+  //     //push data to my local state
+  //     // console.log(response);
+  //     response.data.data;
+  //     // console.log("Form submitted successfully:", response.data);
+  //   } catch (error) {
+  //     console.error("Error submitting form:", error);
+  //   }
+  // };
+
   useEffect(() => {
-    allData();
+    // allData();
   }, []);
   return (
     <div className="container mx-auto mt-10">
-      <Search></Search>
+      <Search
+        onSearchDataChange={handleSearchData}
+        onHandleSubmit={handleSubmit}
+      ></Search>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200 hidden sm:table">
           <thead>
@@ -54,7 +83,7 @@ const BloodList = () => {
           </thead>
           <tbody>
             {userData.map((item) => (
-              <tr key={item.id} className="border-b border-gray-200">
+              <tr key={item._id} className="border-b border-gray-200">
                 <td className="py-2 px-4">{item.id}</td>
                 <td className="py-2 px-4">{item.firstName}</td>
                 <td className="py-2 px-4">{`${item.upazilla}, ${item.district}, ${item.division}`}</td>
@@ -72,7 +101,7 @@ const BloodList = () => {
         {/* Mobile view */}
         <div className="sm:hidden p-2 ">
           {userData.map((item) => (
-            <div key={item.id} className="border p-4 m-8 rounded-lg shadow-md">
+            <div key={item._id} className="border p-4 m-8 rounded-lg shadow-md">
               <div className="flex flex-col">
                 <span className="font-bold">SI:</span> <span>{item.id}</span>
                 <span className="font-bold">Name:</span>{" "}

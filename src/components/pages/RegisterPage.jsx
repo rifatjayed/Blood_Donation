@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import buttonImg from "../../assets/img/correct.png";
 
 import DatePicker from "react-datepicker";
@@ -8,7 +9,9 @@ import divisionData from "../../assets/division";
 import axios from "axios";
 
 const RegisterPage = () => {
+  const [mobileNumberError, setMobileNumberError] = useState("");
   // console.log(divisionData[0].district[0].district);
+
   const [showModal, setShowModal] = useState(false);
   const [divisionIdx, setDivisionIdx] = useState(-1);
   const [districtIdx, setDistrictIdx] = useState(-1);
@@ -34,20 +37,39 @@ const RegisterPage = () => {
 
       [e.target.name]: e.target.value,
     });
+
+    //here
+
+    // Bangladeshi mobile number validation
+    if (e.target.name === "mobileNumber") {
+      const bangladeshiMobileNumberRegex = /^(?:\+?88)?01[3-9]\d{8}$/;
+      if (!bangladeshiMobileNumberRegex.test(e.target.value)) {
+        setMobileNumberError(
+          "Please enter a valid Bangladeshi mobile number (e.g., +8801XXXXXXXX or 01XXXXXXXX)."
+        );
+      } else {
+        setMobileNumberError("");
+      }
+    }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     // console.log(formData);
-    setShowModal(true);
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/v1/auth/register",
-        formData
-      );
-      console.log("Form submitted successfully:", response.data);
-    } catch (error) {
-      console.error("Error submitting form:", error);
+
+    if (!mobileNumberError) {
+      // Proceed with form submission
+
+      setShowModal(true);
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/v1/auth/register",
+          formData
+        );
+        console.log("Form submitted successfully:", response.data);
+      } catch (error) {
+        console.error("Error submitting form:", error);
+      }
     }
   };
 
@@ -57,10 +79,10 @@ const RegisterPage = () => {
         <div
           className="bg-gradient-to-l"
           style={{
-           background: `linear-gradient(90deg, hsla(323, 87%, 15%, 1) 0%, hsla(345, 67%, 42%, 1) 100%),
+            background: `linear-gradient(90deg, hsla(323, 87%, 15%, 1) 0%, hsla(345, 67%, 42%, 1) 100%),
              -moz-linear-gradient(90deg, hsla(323, 87%, 15%, 1) 0%, hsla(345, 67%, 42%, 1) 100%),
              -webkit-linear-gradient(90deg, hsla(323, 87%, 15%, 1) 0%, hsla(345, 67%, 42%, 1) 100%)`,
-           filter:
+            filter:
               'progid:DXImageTransform.Microsoft.gradient(startColorstr="#46052d", endColorstr="#b32346", GradientType=1)',
           }}
         >
@@ -145,6 +167,11 @@ const RegisterPage = () => {
                   className="w-full px-3 py-2 border border-gray-300  rounded-md focus:outline-none  "
                   required
                 />
+                {mobileNumberError && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {mobileNumberError}
+                  </p>
+                )}
               </div>
             </div>
 

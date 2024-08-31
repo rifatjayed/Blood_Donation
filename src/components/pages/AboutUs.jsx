@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 const AboutUs = () => {
@@ -14,10 +15,18 @@ const AboutUs = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log("Form data submitted:", formData);
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/feedback",
+        formData
+      );
+      console.log("Form submitted successfully:", response.data);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
   };
 
   return (
