@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { api } from "../../config";
 
 const AboutUs = () => {
   const [formData, setFormData] = useState({
@@ -19,10 +20,7 @@ const AboutUs = () => {
     e.preventDefault();
     // Handle form submission logic here
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/v1/feedback",
-        formData
-      );
+      const response = await axios.post(`${api}/feedback`, formData);
       console.log("Form submitted successfully:", response.data);
     } catch (error) {
       console.error("Error submitting form:", error);

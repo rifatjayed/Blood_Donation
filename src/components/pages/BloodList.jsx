@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Search from "../Search";
 import axios from "axios";
+import { api } from "../../config";
 
 import dateFormat, { masks } from "dateformat";
+import { useLocation } from "react-router-dom";
 
 const BloodList = () => {
+  const location = useLocation();
   const [userData, setUserData] = useState([]);
   const [searchData, setSearchData] = useState({
     bloodGroup: "",
@@ -13,47 +16,30 @@ const BloodList = () => {
     upazilla: "",
   });
 
-  const handleSearchData = (formData) => {
+  const handleSubmit = async (formData) => {
     setSearchData(formData);
   };
 
-  const handleSubmit = async (formData) => {
-    console.log(formData);
-    console.log("i am here");
+  const getData = async () => {
+    const url = `${api}/all`;
     try {
-      const response = await axios.get("http://localhost:5000/api/v1/all");
-      //Push data to my local state
-      // , {
-      //   params: formData,
-      // }
-      // console.log(response.data.data);
+      const response = await axios.get(url, { params: searchData });
       setUserData(response.data.data);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   };
 
-  // const allData = async () => {
-  //   try {
-  //     const response = await axios.get("http://localhost:5000/api/v1/all");
-  //     //push data to my local state
-  //     // console.log(response);
-  //     response.data.data;
-  //     // console.log("Form submitted successfully:", response.data);
-  //   } catch (error) {
-  //     console.error("Error submitting form:", error);
-  //   }
-  // };
+  useEffect(() => {
+    location.state && setSearchData(location.state);
+  }, []);
 
   useEffect(() => {
-    // allData();
-  }, []);
+    getData();
+  }, [searchData]);
   return (
     <div className="container mx-auto mt-10">
-      <Search
-        onSearchDataChange={handleSearchData}
-        onHandleSubmit={handleSubmit}
-      ></Search>
+      <Search onHandleSubmit={handleSubmit} searchData={location.state} />
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200 hidden sm:table">
           <thead>

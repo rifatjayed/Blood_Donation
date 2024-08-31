@@ -6,8 +6,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import BackgroundImg from "../assets/img/bggg.png";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigatev = useNavigate();
+  const searchSubmit = (formData) => {
+    navigatev("/bloodList", { state: formData });
+  };
+
+ 
   return (
     <div>
       <section className=" md:h-screen  ">
@@ -70,7 +77,7 @@ const Hero = () => {
           <h2 className="font-roboto font-bold flex justify-center items-center md:justify-start text-4xl	my-[30px]">
             Find Blood
           </h2>
-          <Search></Search>
+          <Search onHandleSubmit={searchSubmit} />
         </div>
       </section>
 

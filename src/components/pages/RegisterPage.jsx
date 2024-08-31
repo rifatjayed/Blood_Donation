@@ -8,6 +8,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import divisionData from "../../assets/division";
 import axios from "axios";
 
+import { api } from "../../config";
+
 const RegisterPage = () => {
   const [mobileNumberError, setMobileNumberError] = useState("");
   // console.log(divisionData[0].district[0].district);
@@ -34,13 +36,10 @@ const RegisterPage = () => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-
       [e.target.name]: e.target.value,
     });
 
-    //here
-
-    // Bangladeshi mobile number validation
+    // Mobile number validation
     if (e.target.name === "mobileNumber") {
       const bangladeshiMobileNumberRegex = /^(?:\+?88)?01[3-9]\d{8}$/;
       if (!bangladeshiMobileNumberRegex.test(e.target.value)) {
@@ -62,10 +61,7 @@ const RegisterPage = () => {
 
       setShowModal(true);
       try {
-        const response = await axios.post(
-          "http://localhost:5000/api/v1/auth/register",
-          formData
-        );
+        const response = await axios.post(`${api}/auth/register`, formData);
         console.log("Form submitted successfully:", response.data);
       } catch (error) {
         console.error("Error submitting form:", error);
