@@ -62,7 +62,7 @@ const Footer = () => {
           </div>
           <div className="flex">
             <img className="hidden md:block	w-7	mr-5" src={facebook} alt="" />
-            <img className="hidden md:block	w-7	" src={facebook} alt="" />
+            <img className="hidden md:block	w-7	" src={instagram} alt="" />
           </div>
         </div>
       </div>

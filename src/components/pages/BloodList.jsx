@@ -45,7 +45,7 @@ const BloodList = () => {
           Donnar List
         </h2>
 
-        {/* <table className="min-w-full bg-white border border-gray-200 hidden sm:table">
+        <table className="min-w-full bg-white border border-gray-200 hidden sm:table">
           <thead>
             <tr>
               <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
@@ -82,7 +82,7 @@ const BloodList = () => {
               </tr>
             ))}
           </tbody>
-        </table> */}
+        </table>
 
         {/* Mobile view */}
         <div className="sm:hidden p-2 ">
