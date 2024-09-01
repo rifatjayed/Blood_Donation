@@ -40,13 +40,14 @@ const BloodList = () => {
   return (
     <div className="container mx-auto mt-10">
       <Search onHandleSubmit={handleSubmit} searchData={location.state} />
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-200 hidden sm:table">
+      <div className="overflow-x-auto mt-5">
+        <h2 className="font-roboto font-bold flex justify-center items-center  text-4xl	my-[30px]">
+          Donnar List
+        </h2>
+
+        {/* <table className="min-w-full bg-white border border-gray-200 hidden sm:table">
           <thead>
             <tr>
-              <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
-                SI
-              </th>
               <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
                 Name
               </th>
@@ -70,19 +71,18 @@ const BloodList = () => {
           <tbody>
             {userData.map((item) => (
               <tr key={item._id} className="border-b border-gray-200">
-                <td className="py-2 px-4">{item.id}</td>
-                <td className="py-2 px-4">{item.firstName}</td>
+                <td className="py-2 px-4">{`${item.firstName} ${item.lastName}`}</td>
                 <td className="py-2 px-4">{`${item.upazilla}, ${item.district}, ${item.division}`}</td>
                 <td className="py-2 px-4">{item.mobileNumber}</td>
                 <td className="py-2 px-4">{item.gender}</td>
                 <td className="py-2 px-4">{item.bloodGroup}</td>
                 <td className="py-2 px-4">
-                  {dateFormat(item.lastDonationDate, "longDate")}
+                  {dateFormat(item.lastDonate, "longDate")}
                 </td>
               </tr>
             ))}
           </tbody>
-        </table>
+        </table> */}
 
         {/* Mobile view */}
         <div className="sm:hidden p-2 ">
@@ -101,7 +101,7 @@ const BloodList = () => {
                 <span className="font-bold">Blood Group:</span>{" "}
                 <span>{item.bloodGroup}</span>
                 <span className="font-bold">Last Donation Date:</span>{" "}
-                <span>{dateFormat(item.lastDonationDate, "fullDate")}</span>
+                <span>{dateFormat(item.lastDonate, "fullDate")}</span>
               </div>
             </div>
           ))}

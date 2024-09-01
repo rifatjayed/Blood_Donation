@@ -12,6 +12,8 @@ import { api } from "../../config";
 
 const RegisterPage = () => {
   const [mobileNumberError, setMobileNumberError] = useState("");
+
+  const [emailError, setEmailError] = useState("");
   // console.log(divisionData[0].district[0].district);
 
   const [showModal, setShowModal] = useState(false);
@@ -39,6 +41,16 @@ const RegisterPage = () => {
       [e.target.name]: e.target.value,
     });
 
+    // Email validation
+    if (e.target.name === "email") {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(e.target.value)) {
+        setEmailError("Please enter a valid email address.");
+      } else {
+        setEmailError("");
+      }
+    }
+
     // Mobile number validation
     if (e.target.name === "mobileNumber") {
       const bangladeshiMobileNumberRegex = /^(?:\+?88)?01[3-9]\d{8}$/;
@@ -56,7 +68,7 @@ const RegisterPage = () => {
     event.preventDefault();
     // console.log(formData);
 
-    if (!mobileNumberError) {
+    if (!mobileNumberError || !emailError) {
       // Proceed with form submission
 
       setShowModal(true);
@@ -145,6 +157,9 @@ const RegisterPage = () => {
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none  "
                   required
                 />
+                {emailError && (
+                  <p className="text-red-500 text-sm mt-1">{emailError}</p>
+                )}
               </div>
 
               <div>

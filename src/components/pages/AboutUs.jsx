@@ -3,6 +3,7 @@ import { useState } from "react";
 import { api } from "../../config";
 
 const AboutUs = () => {
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     profession: "",
@@ -132,6 +133,32 @@ const AboutUs = () => {
                   Submit
                 </button>
               </form>
+
+              {showModal && (
+                <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+                  <div className="bg-white p-8 rounded shadow-lg text-center">
+                    <h2 className="text-2xl font-bold mb-4">Success!</h2>
+                    <p className="text-gray-700 mb-6">
+                      Your form has been submitted successfully.
+                    </p>
+                    <button
+                      className="bg-[#6A0B37] text-white py-2 px-4 rounded"
+                      onClick={() => {
+                        setShowModal(false);
+                        //function
+
+                        setFormData({
+                          name: "",
+                          profession: "",
+                          opinion: "",
+                        });
+                      }}
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

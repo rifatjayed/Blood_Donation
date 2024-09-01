@@ -75,6 +75,19 @@ const Menubar = () => {
             </li>
             <li className="p-2">
               <Link
+                to="/BloodList"
+                onClick={() => handleClick("bloodList")}
+                className={`${
+                  active === "bloodList"
+                    ? "underline underline-offset-8 decoration-[#4B4949]	decoration-4"
+                    : ""
+                }`}
+              >
+                Find Blood
+              </Link>
+            </li>
+            <li className="p-2">
+              <Link
                 to="/Register"
                 onClick={() => handleClick("register")}
                 className={`${
