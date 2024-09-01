@@ -10,7 +10,7 @@ const Footer = () => {
     <section className="bg-[#1E2833]">
       <div className="py-16	">
         <div className="flex justify-between px-12">
-          <div>
+          <div className="hidden md:block">
             <img src={FooterIcon} alt="" />
           </div>
           <div className="flex items-center	">
@@ -24,11 +24,11 @@ const Footer = () => {
         </div>
         <hr className="mx-12 mt-10 " />
 
-        <div className="text-white px-12 my-10 flex justify-between font-poppins">
+        <div className="text-white px-12 my-10 flex flex-col md:flex-row md:justify-between font-poppins">
           <div className="">
             <h2 className="text-xl	">Subscribe to our newsletter</h2>
           </div>
-          <div className="">
+          <div className="py-9	md:py-0">
             <ul className="text-base	">
               <li>Services</li>
               <li>Email Marketing</li>
@@ -38,7 +38,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <ul className="text-base	">
+            <ul className="text-base	py-9	md:py-0">
               <li>About</li>
               <li>Our Story</li>
               <li>Benefits</li>
@@ -60,9 +60,9 @@ const Footer = () => {
             <p className="mr-10">Terms & Conditions</p>
             <p>Privacy Policy</p>
           </div>
-          <div className="flex ">
-            <img className="	w-7	mr-5" src={facebook} alt="" />
-            <img className="	w-7	" src={facebook} alt="" />
+          <div className="flex">
+            <img className="hidden md:block	w-7	mr-5" src={facebook} alt="" />
+            <img className="hidden md:block	w-7	" src={facebook} alt="" />
           </div>
         </div>
       </div>
