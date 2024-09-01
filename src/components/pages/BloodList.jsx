@@ -89,13 +89,12 @@ const BloodList = () => {
           {userData.map((item) => (
             <div key={item._id} className="border p-4 m-8 rounded-lg shadow-md">
               <div className="flex flex-col">
-                <span className="font-bold">SI:</span> <span>{item.id}</span>
                 <span className="font-bold">Name:</span>{" "}
-                <span>{item.name}</span>
+                <span>{`${item.firstName} ${item.lastName}`}</span>
                 <span className="font-bold">Address:</span>{" "}
-                <span>{item.address}</span>
+                <span>{`${item.upazilla}, ${item.district}, ${item.division}`}</span>
                 <span className="font-bold">Contact No:</span>{" "}
-                <span>{item.contactNo}</span>
+                <span>{item.mobileNumber}</span>
                 <span className="font-bold">Gender:</span>{" "}
                 <span>{item.gender}</span>
                 <span className="font-bold">Blood Group:</span>{" "}
