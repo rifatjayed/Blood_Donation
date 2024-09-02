@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Search from "../Search";
 import axios from "axios";
 import { api } from "../../config";
 
-import dateFormat, { masks } from "dateformat";
+import dateFormat from "dateformat";
 import { useLocation } from "react-router-dom";
 
 const BloodList = () => {
