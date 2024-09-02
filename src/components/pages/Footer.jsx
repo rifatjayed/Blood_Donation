@@ -30,7 +30,7 @@ const Footer = () => {
           </div>
           <div className="py-9	md:py-0">
             <ul className="text-base	">
-              <li>Services</li>
+              <li className="font-bold	text-lg	mb-2">Services</li>
               <li>Email Marketing</li>
               <li>Campaigns</li>
               <li>Branding</li>
@@ -39,7 +39,7 @@ const Footer = () => {
           </div>
           <div>
             <ul className="text-base	py-9	md:py-0">
-              <li>About</li>
+              <li className="font-bold	text-lg	mb-2">About</li>
               <li>Our Story</li>
               <li>Benefits</li>
               <li>Team</li>
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
           <div>
             <ul className="text-base	">
-              <li>Help</li>
+              <li className="font-bold	text-lg	mb-2">Help</li>
               <li>FAQs</li>
               <li>Contact Us</li>
             </ul>

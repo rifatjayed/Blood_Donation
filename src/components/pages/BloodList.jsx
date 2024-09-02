@@ -45,44 +45,51 @@ const BloodList = () => {
           Donnar List
         </h2>
 
-        <table className="min-w-full bg-white border border-gray-200 hidden sm:table">
-          <thead>
-            <tr>
-              <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
-                Name
-              </th>
-              <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
-                Address
-              </th>
-              <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
-                Contact No
-              </th>
-              <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
-                Gender
-              </th>
-              <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
-                Blood Group
-              </th>
-              <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
-                Last Donation Date
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {userData.map((item) => (
-              <tr key={item._id} className="border-b border-gray-200">
-                <td className="py-2 px-4">{`${item.firstName} ${item.lastName}`}</td>
-                <td className="py-2 px-4">{`${item.upazilla}, ${item.district}, ${item.division}`}</td>
-                <td className="py-2 px-4">{item.mobileNumber}</td>
-                <td className="py-2 px-4">{item.gender}</td>
-                <td className="py-2 px-4">{item.bloodGroup}</td>
-                <td className="py-2 px-4">
-                  {dateFormat(item.lastDonate, "longDate")}
-                </td>
+        {/* Check if there is any data */}
+        {userData.length === 0 ? (
+          <div className="flex justify-center items-center h-32">
+            <p className="text-black text-xl">No blood donor found</p>
+          </div>
+        ) : (
+          <table className="min-w-full bg-white border border-gray-200 hidden sm:table">
+            <thead>
+              <tr>
+                <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
+                  Name
+                </th>
+                <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
+                  Address
+                </th>
+                <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
+                  Contact No
+                </th>
+                <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
+                  Gender
+                </th>
+                <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
+                  Blood Group
+                </th>
+                <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">
+                  Last Donation Date
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {userData.map((item) => (
+                <tr key={item._id} className="border-b border-gray-200">
+                  <td className="py-2 px-4">{`${item.firstName} ${item.lastName}`}</td>
+                  <td className="py-2 px-4">{`${item.upazilla}, ${item.district}, ${item.division}`}</td>
+                  <td className="py-2 px-4">{item.mobileNumber}</td>
+                  <td className="py-2 px-4">{item.gender}</td>
+                  <td className="py-2 px-4">{item.bloodGroup}</td>
+                  <td className="py-2 px-4">
+                    {dateFormat(item.lastDonate, "longDate")}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
 
         {/* Mobile view */}
         <div className="sm:hidden p-2 ">
