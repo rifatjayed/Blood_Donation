@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import buttonImg from "../../assets/img/correct.png";
 
@@ -381,7 +381,7 @@ const RegisterPage = () => {
                       districtIdx
                     ].upazilla.map((upazilla, index) => (
                       // eslint-disable-next-line react/jsx-key
-                      <option value={upazilla} key={index} ind={index}>
+                      <option value={upazilla} key={index}>
                         {upazilla}
                       </option>
                     ))}
