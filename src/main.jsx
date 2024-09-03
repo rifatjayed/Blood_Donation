@@ -11,6 +11,8 @@ import RegisterPage from "./components/pages/RegisterPage.jsx";
 import AboutUs from "./components/pages/AboutUs.jsx";
 import BloodList from "./components/pages/BloodList.jsx";
 import Hero from "./components/Hero.jsx";
+import { Provider } from "react-redux";
+import store from "./components/redux/store.jsx";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +50,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
