@@ -51,7 +51,7 @@ const BloodList = () => {
             <p className="text-black text-xl">No blood donor found</p>
           </div>
         ) : (
-          <table className="min-w-full bg-white border border-gray-200 hidden sm:table">
+          <table className="min-w-full bg-white border border-gray-200 mb-10 hidden sm:table">
             <thead>
               <tr>
                 <th className="py-2 px-4 bg-gray-200 text-left text-gray-600">

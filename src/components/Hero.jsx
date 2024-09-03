@@ -31,7 +31,7 @@ const Hero = () => {
 
   useEffect(() => {
     getData();
-    console.log(feedback);
+    // console.log(feedback);
   }, []);
 
   return (
