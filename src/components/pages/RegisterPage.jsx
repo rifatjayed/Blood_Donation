@@ -76,7 +76,7 @@ const RegisterPage = () => {
         const response = await axios.post(`${api}/auth/register`, formData);
         console.log("Form submitted successfully:", response.data);
       } catch (error) {
-        console.error("Error submitting form:", error);
+        console.error("Error submitting form:", error.response.data);
       }
     }
   };

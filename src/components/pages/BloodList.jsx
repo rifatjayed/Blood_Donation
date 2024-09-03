@@ -26,7 +26,7 @@ const BloodList = () => {
       const response = await axios.get(url, { params: searchData });
       setUserData(response.data.data);
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error submitting form:", error.response.data);
     }
   };
 
