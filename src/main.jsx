@@ -13,6 +13,8 @@ import BloodList from "./components/pages/BloodList.jsx";
 import Hero from "./components/Hero.jsx";
 import { Provider } from "react-redux";
 import store from "./components/redux/store.jsx";
+import ForgotPassword from "./components/pages/ForgotPassword.jsx";
+import NewPassPage from "./components/pages/NewPassPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +45,16 @@ const router = createBrowserRouter([
       {
         path: "/BloodList",
         element: <BloodList></BloodList>,
+      },
+      ,
+      {
+        path: "/Forgot",
+        element: <ForgotPassword></ForgotPassword>,
+      },
+      ,
+      {
+        path: "/SetPassword",
+        element: <NewPassPage></NewPassPage>,
       },
     ],
   },

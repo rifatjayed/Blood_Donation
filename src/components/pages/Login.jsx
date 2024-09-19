@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { api } from "../../config";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -32,9 +33,11 @@ const Login = () => {
         <h2 className="text-2xl font-bold mb-6 text-center">Log In</h2>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="">Email</label>
+            <label className="block" htmlFor="">
+              Email
+            </label>
             <input
-              className="m-2 w-3/5	 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="my-2.5	 w-11/12		 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               type="email"
               name="email"
               id="email"
@@ -43,19 +46,24 @@ const Login = () => {
           </div>
 
           <div>
-            <label htmlFor="">Password</label>
+            <label className="block" htmlFor="">
+              Password
+            </label>
             <input
-              className="m-2 w-3/5	 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="my-2.5	 w-11/12		 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               type="password"
               name="password"
               id="password"
               onChange={handleChange}
             />
           </div>
+          <Link to="/Forgot">
+            <p className="text-right pr-7 text-[#648DDB]">Forgot password?</p>
+          </Link>
 
           <button
             type="submit"
-            className="w-full mt-4 px-4 py-2 bg-black text-white font-semibold text-sm rounded-md shadow  focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
+            className="w-11/12	 mt-4 px-4 py-2 bg-black text-white font-semibold text-sm rounded-md shadow  focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
           >
             Log In
           </button>
