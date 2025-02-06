@@ -14,7 +14,7 @@ const Menubar = () => {
     <div>
       <header className="bg-white text-black shadow-md">
         <nav className="container mx-auto flex justify-between items-center p-4">
-          <div className="text-2xl font-semibold">MyApp</div>
+          <div className="text-2xl font-semibold">DonorHub </div>
 
           {/* Hamburger Icon for Mobile */}
           <div className="block md:hidden">
@@ -86,7 +86,7 @@ const Menubar = () => {
                 Find Blood
               </Link>
             </li>
-            <li className="p-2">
+            {/* <li className="p-2">
               <Link
                 to="/Register"
                 onClick={() => handleClick("register")}
@@ -98,7 +98,7 @@ const Menubar = () => {
               >
                 Register
               </Link>
-            </li>
+            </li> */}
             <Link to="/Login">
               <button
                 onClick={() => handleClick("login")}

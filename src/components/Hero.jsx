@@ -71,14 +71,10 @@ const Hero = () => {
           </div>
         </div>
       </section> */}
-      <section className="md:h-screen flex flex-col-reverse md:flex-row items-center justify-center">
+      <section className=" flex flex-col-reverse md:flex-row items-center justify-center">
         {/* Left Side - Image */}
-        <div className="hidden md:flex w-full md:w-[55%] justify-center">
-          <img
-            className="w-full md:w-4/5"
-            src={BackgroundImg}
-            alt="Blood Donation"
-          />
+        <div className="hidden md:flex w-full md:w-[55%] ">
+          <img className="w-full " src={BackgroundImg} alt="Blood Donation" />
         </div>
 
         {/* Right Side - Text Content */}
@@ -87,9 +83,11 @@ const Hero = () => {
             Save Life Donate <br /> Blood
           </h3>
           <p className="text-lg md:text-xl mb-10 md:mb-16">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. It has survived not only five centuries, but also the leap
-            into electronic typesetting.
+            Donate blood, save lives! Our platform connects blood donors with
+            those in urgent need, making the process seamless and efficient.
+            Register as a donor, request blood when needed, and be a lifesaver
+            in critical moments. Join us in making a difference—because every
+            drop counts!
           </p>
           <a
             href="#learn-more"
@@ -268,7 +266,9 @@ const Hero = () => {
         </div>
       </section>
 
-      <section className="md:ms-[50px] my-16">
+      {/* blog section */}
+
+      {/* <section className="md:ms-[50px] my-16">
         <div className="mx-[50px]">
           <h2 className="font-roboto font-bold	text-4xl	my-[30px] text-center md:text-left ">
             Blog
@@ -327,7 +327,7 @@ const Hero = () => {
             </Swiper>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
