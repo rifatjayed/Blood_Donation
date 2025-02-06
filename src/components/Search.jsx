@@ -145,7 +145,7 @@ const Search = ({ onHandleSubmit, searchData }) => {
               {districtIdx + 1 ? (
                 <option value={""}>Please select an upazilla</option>
               ) : (
-                <option value={""}>Please select a zill first</option>
+                <option value={""}>Please select a zila first</option>
               )}
               {districtIdx + 1 &&
                 divisiondistrict[divisionIdx].district[

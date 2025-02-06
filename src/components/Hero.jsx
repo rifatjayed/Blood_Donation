@@ -24,10 +24,19 @@ const Hero = () => {
       const response = await axios.get(url);
 
       setFeedback(response.data.data);
+      // console.log(response.data.data);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   };
+
+  // const hanldeData = async ()=>{
+
+  //   const res = await fetch(url)
+  //   const data = await res.json()
+  //   consol.log(data)
+  //   }
+  //   handleData()
 
   useEffect(() => {
     getData();
@@ -36,7 +45,7 @@ const Hero = () => {
 
   return (
     <div>
-      <section className=" md:h-screen  ">
+      {/* <section className=" md:h-screen  ">
         <div className=" flex ">
           <div className="hidden md:block">
             <img className="w-4/5" src={BackgroundImg} alt="" />
@@ -60,6 +69,34 @@ const Hero = () => {
               Get Blood Now
             </a>
           </div>
+        </div>
+      </section> */}
+      <section className="md:h-screen flex flex-col-reverse md:flex-row items-center justify-center">
+        {/* Left Side - Image */}
+        <div className="hidden md:flex w-full md:w-[55%] justify-center">
+          <img
+            className="w-full md:w-4/5"
+            src={BackgroundImg}
+            alt="Blood Donation"
+          />
+        </div>
+
+        {/* Right Side - Text Content */}
+        <div className="p-6 text-center md:text-right w-full md:w-[45%]">
+          <h3 className="text-[#3C3C3C] font-roboto font-bold text-4xl md:text-5xl mb-5">
+            Save Life Donate <br /> Blood
+          </h3>
+          <p className="text-lg md:text-xl mb-10 md:mb-16">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. It has survived not only five centuries, but also the leap
+            into electronic typesetting.
+          </p>
+          <a
+            href="#learn-more"
+            className="bg-black font-roboto text-white font-bold text-xl md:text-3xl py-2 px-6 md:py-4 md:px-9 rounded-lg inline-block"
+          >
+            Get Blood Now
+          </a>
         </div>
       </section>
 
@@ -212,7 +249,7 @@ const Hero = () => {
               {/* Loop through the feedback data */}
               {feedback.map((item, index) => (
                 <SwiperSlide key={index} className="">
-                  <div className="md:w-80 mx-5 md:mx-0 h-64 p-10 white rounded-lg shadow-lg mb-10">
+                  <div className="md:w-80 mx-5 md:mx-0 h-64 p-10 white rounded-lg shadow-lg mb-10 overflow-hidden	">
                     <div className="flex items-center">
                       <div className="w-14 mr-4">
                         <img src={userImg} alt="" />
