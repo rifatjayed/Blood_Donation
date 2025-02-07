@@ -1,31 +1,32 @@
-import { useState } from "react";
-import { api } from "../../config";
+import { useContext, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  const { signInUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [error, setError] = useState();
+  const [success, setSuccess] = useState();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(formData);
-    const url = `${api}/auth/login`;
-    try {
-      const response = await axios.post(url, formData);
-      console.log("Form submitted successfully:", response.data);
-    } catch (error) {
-      console.error("Error submitting form:", error.response.data);
-    }
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    signInUser(email, password)
+      .then((result) => {
+        setSuccess("Login done");
+        e.target.reset();
+        navigate("/");
+        console.log(result);
+      })
+      .catch((error) => {
+        setError("error khyse re");
+        console.log(error);
+      });
   };
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -41,7 +42,6 @@ const Login = () => {
               type="email"
               name="email"
               id="email"
-              onChange={handleChange}
             />
           </div>
 
@@ -54,13 +54,13 @@ const Login = () => {
               type="password"
               name="password"
               id="password"
-              onChange={handleChange}
             />
           </div>
           <Link to="/Forgot">
             <p className="text-right pr-7 text-[#648DDB]">Forgot password?</p>
           </Link>
-
+          {error && <p className="text-red-500">{error}</p>}
+          {success && <p>{success}</p>}
           <button
             type="submit"
             className="w-11/12	 mt-4 px-4 py-2 bg-black text-white font-semibold text-sm rounded-md shadow  focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
@@ -68,6 +68,15 @@ const Login = () => {
             Log In
           </button>
         </form>
+
+        <div>
+          <p className="text-[#303030] text-[18px] font-normal	">
+            Don’t have an account?{" "}
+            <span className="text-[#2D31AB]">
+              <Link to="/Signup">Sign Up</Link>
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );

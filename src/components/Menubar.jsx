@@ -1,13 +1,25 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
+import userImg from "../assets/img/user.png";
 
 const Menubar = () => {
   const [active, setActive] = useState(""); // state to track the active menu item
+  const [showMenu, setShowMenu] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
 
   const handleClick = (menuItem) => {
     setActive(menuItem); // update the active menu item
   };
-
+  const handleLogOut = () => {
+    logOut()
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -99,16 +111,46 @@ const Menubar = () => {
                 Register
               </Link>
             </li> */}
-            <Link to="/Login">
-              <button
-                onClick={() => handleClick("login")}
-                className={`border border-black rounded-lg md:py-2 px-4 md:px-16${
-                  active === "login" ? " bg-[#6A0B37] text-white" : ""
-                }`}
-              >
-                <li className="p-2">Login</li>
-              </button>
-            </Link>
+
+            {user ? (
+              <div>
+                <img
+                  src={userImg}
+                  className="w-[30px]"
+                  alt=""
+                  srcset=""
+                  onClick={() => setShowMenu(!showMenu)}
+                />
+
+                {/* Dropdown Menu */}
+                {showMenu && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md p-2">
+                    <Link to="/register" className="px-4 py-2">
+                      Profile
+                    </Link>
+                    <button
+                      onClick={handleLogOut}
+                      className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100 rounded-md"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div>
+                <Link to="/Login">
+                  <button
+                    onClick={() => handleClick("login")}
+                    className={`border border-black rounded-lg md:py-2 px-4 md:px-16${
+                      active === "login" ? " bg-[#6A0B37] text-white" : ""
+                    }`}
+                  >
+                    <li className="p-2">Login</li>
+                  </button>
+                </Link>
+              </div>
+            )}
           </ul>
         </nav>
       </header>
