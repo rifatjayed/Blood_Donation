@@ -60,10 +60,10 @@ const Footer = () => {
             <p className="mr-10">Terms & Conditions</p>
             <p>Privacy Policy</p>
           </div>
-          <div className="flex">
+          {/* <div className="flex">
             <img className="hidden md:block	w-7	mr-5" src={facebook} alt="" />
             <img className="hidden md:block	w-7	" src={instagram} alt="" />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

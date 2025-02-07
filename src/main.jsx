@@ -16,6 +16,7 @@ import store from "./components/redux/store.jsx";
 import ForgotPassword from "./components/pages/ForgotPassword.jsx";
 import NewPassPage from "./components/pages/NewPassPage.jsx";
 import SignUpPage from "./components/pages/SignUpPage.jsx";
+import PrivateRoutes from "./components/routes/PrivateRoutes.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +41,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/Register",
-        element: <RegisterPage></RegisterPage>,
+        element: (
+          <>
+            <PrivateRoutes>
+              <RegisterPage></RegisterPage>,
+            </PrivateRoutes>
+          </>
+        ),
       },
       {
         path: "/SignUp",
