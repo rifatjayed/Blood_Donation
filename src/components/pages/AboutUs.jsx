@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { api } from "../../config";
+import { ToastContainer, toast } from "react-toastify"; // Import the toast components
 
 const AboutUs = () => {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     profession: "",
@@ -22,9 +23,30 @@ const AboutUs = () => {
     // Handle form submission logic here
     try {
       const response = await axios.post(`${api}/feedback`, formData);
+      setFormData({ name: "", profession: "", opinion: "" });
+      // Show success toast message
+      toast.success("Form submitted successfully!", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       console.log("Form submitted successfully:", response.data);
     } catch (error) {
       console.error("Error submitting form:", error);
+      // Optionally, show error toast message
+      toast.error("Error submitting form. Please try again.", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
 
@@ -164,7 +186,7 @@ const AboutUs = () => {
               Submit
             </button>
           </form>
-          {showModal && (
+          {/* {showModal && (
             <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
               <div className="bg-white p-8 rounded shadow-lg text-center">
                 <h2 className="text-2xl font-bold mb-4">Success!</h2>
@@ -182,9 +204,12 @@ const AboutUs = () => {
                 </button>
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
+
+      {/* Add ToastContainer here */}
+      <ToastContainer />
     </div>
   );
 };

@@ -13,9 +13,9 @@ import { useEffect, useState } from "react";
 
 const Hero = () => {
   const [feedback, setFeedback] = useState([]);
-  const navigatev = useNavigate();
+  const navigate = useNavigate();
   const searchSubmit = (formData) => {
-    navigatev("/bloodList", { state: formData });
+    navigate("/bloodList", { state: formData });
   };
 
   const getData = async () => {
@@ -45,32 +45,6 @@ const Hero = () => {
 
   return (
     <div>
-      {/* <section className=" md:h-screen  ">
-        <div className=" flex ">
-          <div className="hidden md:block">
-            <img className="w-4/5" src={BackgroundImg} alt="" />
-          </div>
-          <div className="p-8 text-left md:text-right w-full md:w-[45%]  mr-4">
-            <h3 className="text-[#3C3C3C] font-roboto font-bold text-5xl mb-5">
-              Save Life Donate <br /> Blood
-            </h3>
-            <p className="text-xl mb-16 ">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged.
-            </p>
-            <a
-              href="#learn-more"
-              className="bg-black font-roboto  text-white font-bold text-3xl py-1 px-4 md:py-4 md:px-9 rounded-lg"
-            >
-              Get Blood Now
-            </a>
-          </div>
-        </div>
-      </section> */}
       <section className=" flex flex-col-reverse md:flex-row items-center justify-center">
         {/* Left Side - Image */}
         <div className="hidden md:flex w-full md:w-[55%] ">
@@ -134,97 +108,7 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* <section className="md:mx-[50px] md:my-[100px]">
-        {feedback.map((item, index) => (
-          <div className="md:mx-[50px]  md:flex md:justify-center md:items-center overflow-hidden ">
-            <div className="w-full md:w-2/5 ">
-              <h2 className="font-roboto font-bold	text-4xl	my-[30px]  flex justify-center items-center md:justify-start">
-                Testimonials
-              </h2>
-            </div>
-
-            <div className="md:flex  md:flex-row gap-8 md:w-3/5 justify-center items-center">
-              <Swiper
-                spaceBetween={50}
-                // slidesPerView={2}
-                breakpoints={{
-                  // When the window width is >= 640px (small devices)
-                  640: {
-                    slidesPerView: 1,
-                  },
-                  // When the window width is >= 768px (medium devices)
-                  768: {
-                    slidesPerView: 2,
-                  },
-                }}
-                // onSlideChange={() => console.log("slide change")}
-                // onSwiper={(swiper) => console.log(swiper)}
-              >
-                <div>
-                  <SwiperSlide className="">
-                    <div className=" md:w-80 mx-5 md:mx-0 h-64 p-10 white rounded-lg shadow-lg mb-10 ">
-                      <div className="flex items-center ">
-                        <div className="w-14 mr-4">
-                          <img src={userImg} alt="" />
-                        </div>
-                        <div>
-                          <h2>{item.name}</h2>
-                          <h5>{item.profession}</h5>
-                        </div>
-                      </div>
-                      <p>{item.opinion}</p>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="">
-                    <div className=" md:w-80 mx-5 md:mx-0 h-64 p-10 white rounded-lg shadow-lg mb-10 ">
-                      <div className="flex items-center ">
-                        <div className="w-14 mr-4">
-                          <img src={userImg} alt="" />
-                        </div>
-                        <div>
-                          <h2>{item.name}</h2>
-                          <h5>{item.profession}</h5>
-                        </div>
-                      </div>
-                      <p>{item.opinion}</p>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="">
-                    <div className=" md:w-80 mx-5 md:mx-0 h-64 p-10 white rounded-lg shadow-lg mb-10 ">
-                      <div className="flex items-center ">
-                        <div className="w-14 mr-4">
-                          <img src={userImg} alt="" />
-                        </div>
-                        <div>
-                          <h2>{item.name}</h2>
-                          <h5>{item.profession}</h5>
-                        </div>
-                      </div>
-                      <p>{item.opinion}</p>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="">
-                    <div className=" md:w-80 mx-5 md:mx-0 h-64 p-10 white rounded-lg shadow-lg mb-10 ">
-                      <div className="flex items-center ">
-                        <div className="w-14 mr-4">
-                          <img src={userImg} alt="" />
-                        </div>
-                        <div>
-                          <h2>{item.name}</h2>
-                          <h5>{item.profession}</h5>
-                        </div>
-                      </div>
-                      <p>{item.opinion}</p>
-                    </div>
-                  </SwiperSlide>
-                </div>
-              </Swiper>
-            </div>
-          </div>
-        ))}
-      </section> */}
-
-      <section className="md:mx-[50px] md:my-[100px]">
+      <section className="md:mx-[50px] md:my-[100px] ">
         <div className="md:mx-[50px] md:flex md:justify-center md:items-center overflow-hidden">
           <div className="w-full md:w-2/5 ">
             <h2 className="font-roboto font-bold text-4xl my-[30px] flex justify-center items-center md:justify-start">
@@ -232,32 +116,37 @@ const Hero = () => {
             </h2>
           </div>
 
-          <div className="md:flex md:flex-row gap-8 md:w-3/5 justify-center items-center">
+          <div className="md:flex md:flex-row gap-8 md:w-3/5 justify-center items-center  ">
             <Swiper
-              spaceBetween={50}
+              spaceBetween={20}
               breakpoints={{
-                640: {
-                  slidesPerView: 1,
-                },
-                768: {
-                  slidesPerView: 2,
-                },
+                320: { slidesPerView: 1 },
+                640: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
               }}
+              className="flex items-center justify-center "
             >
               {/* Loop through the feedback data */}
               {feedback.map((item, index) => (
-                <SwiperSlide key={index} className="">
-                  <div className="md:w-80 mx-5 md:mx-0 h-64 p-10 white rounded-lg shadow-lg mb-10 overflow-hidden	">
-                    <div className="flex items-center">
-                      <div className="w-14 mr-4">
-                        <img src={userImg} alt="" />
-                      </div>
+                <SwiperSlide key={index}>
+                  <div className=" bg-white shadow-lg rounded-lg p-6 flex flex-col justify-between overflow-hidden">
+                    <div className="flex items-center gap-4 mb-4">
+                      <img
+                        src={userImg}
+                        alt="User"
+                        className="w-14 h-14 rounded-full object-cover"
+                      />
                       <div>
-                        <h2>{item.name}</h2>
-                        <h5>{item.profession}</h5>
+                        <h3 className="font-semibold text-lg">{item.name}</h3>
+                        <p className="text-sm text-gray-500">
+                          {item.profession}
+                        </p>
                       </div>
                     </div>
-                    <p>{item.opinion}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed overflow-hidden text-ellipsis max-h-24">
+                      {item.opinion}
+                    </p>
                   </div>
                 </SwiperSlide>
               ))}

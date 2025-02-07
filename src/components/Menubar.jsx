@@ -14,7 +14,7 @@ const Menubar = () => {
     <div>
       <header className="bg-white text-black shadow-md">
         <nav className="container mx-auto flex justify-between items-center p-4">
-          <div className="text-2xl font-semibold">DonorHub </div>
+          <div className="text-2xl font-semibold text-[#6A0B37]">DonorHub </div>
 
           {/* Hamburger Icon for Mobile */}
           <div className="block md:hidden">
