@@ -29,244 +29,162 @@ const AboutUs = () => {
   };
 
   return (
-    <div className="mx-5 md:mx-[50px] ">
-      {/* <h1 className="text-6xl font-semibold text-center my-10">About Us</h1> */}
-
-      {/* <div>
-        <h1
-          className="font-semibold text-2xl
-"
-        >
-          Saving Lives, One Drop at a Time
-        </h1>
-        <p className="mt-3">
-          Welcome to DonorHub , a life-saving initiative dedicated to bridging
-          the gap between blood donors and those in urgent need. Our platform is
-          built with the vision of ensuring that no one has to struggle to find
-          a life-saving blood donor in times of emergency. With a seamless,
-          technology-driven approach, we connect voluntary donors with patients,
-          making blood donation easier, faster, and more efficient
+    <div className="min-h-screen  flex items-center justify-center p-6">
+      <div className="max-w-4xl bg-white p-8 rounded-2xl  text-center">
+        <h1 className="text-4xl font-bold text-[#6A0B37] mb-10">About Us</h1>
+        <p className="text-gray-700 text-lg leading-relaxed">
+          Welcome to{" "}
+          <span className="text-[#6A0B37] font-semibold">DonorHub</span>, a
+          platform dedicated to connecting blood donors with those in urgent
+          need. Our mission is to make blood donation more accessible and
+          efficient by leveraging technology to bridge the gap between donors
+          and recipients.
         </p>
-      </div>
-      <div>
-        <h1
-          className="font-semibold text-2xl
-"
-        >
-          Our Mission
-        </h1>
-        <p className="mt-3">
-          At DonorHub, our mission is simple yet powerful: 🔴 To save lives by
-          ensuring quick and easy access to blood donors. 🔴 To create a strong
-          and reliable network of voluntary blood donors. 🔴 To promote
-          awareness and encourage people to donate blood regularly. We believe
-          that no life should be lost due to the unavailability of blood. With
-          the power of technology and a community-driven approach, we are making
-          blood donation more accessible than ever.
-        </p>
-      </div> */}
-
-      <header class=" text-black py-6 text-center">
-        <h1 class="text-4xl font-bold">About Us</h1>
-        <p class="text-lg">Saving Lives, One Drop at a Time</p>
-      </header>
-
-      <section class="container mx-auto px-6 py-12 max-w-7xl">
-        <div class="text-center max-w-3xl mx-auto">
-          <h2 class="text-3xl font-semibold text-black">Who We Are</h2>
-          <p class="mt-4 text-lg text-gray-700">
-            We are a dedicated platform committed to bridging the gap between
-            blood donors and those in need. Our mission is to create a seamless
-            and efficient system where individuals can easily donate and request
-            blood, ensuring that no life is lost due to a lack of timely
-            donation.
+        <div className="mt-6 text-left">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+            Our Mission
+          </h2>
+          <p className="text-gray-700">
+            We aim to create a seamless and reliable system where users can
+            search for blood donors based on their location and blood type. By
+            ensuring a user-friendly experience, we hope to save countless lives
+            through quick and efficient donor-recipient connections.
           </p>
         </div>
-      </section>
-
-      <section class="container mx-auto px-6 py-12 bg-white rounded-lg shadow-lg max-w-7xl">
-        <h2 class="text-3xl font-semibold text-center text-black">
-          Our Mission
-        </h2>
-        <div class="grid md:grid-cols-3 gap-8 mt-8 text-center">
-          <div class="p-6 border rounded-lg shadow">
-            <h3 class="text-xl font-bold text-black">Save Lives</h3>
-            <p class="mt-2 text-gray-700">
-              Connecting donors with those in urgent need.
-            </p>
-          </div>
-          <div class="p-6 border rounded-lg shadow">
-            <h3 class="text-xl font-bold text-black">Easy & Fast</h3>
-            <p class="mt-2 text-gray-700">
-              A seamless process to find and donate blood quickly.
-            </p>
-          </div>
-          <div class="p-6 border rounded-lg shadow">
-            <h3 class="text-xl font-bold text-black">Community Support</h3>
-            <p class="mt-2 text-gray-700">
-              Building a strong network of voluntary donors.
-            </p>
-          </div>
+        <div className="mt-6 text-left">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+            How It Works
+          </h2>
+          <ul className="list-disc list-inside text-gray-700">
+            <li>
+              Users can search for donors based on location and blood type.
+            </li>
+            <li>
+              Registered donors can submit their availability to help those in
+              need.
+            </li>
+            <li>
+              Direct contact options allow quick communication between donors
+              and recipients.
+            </li>
+            <li>
+              Emergency request feature to notify nearby donors instantly.
+            </li>
+          </ul>
         </div>
-      </section>
-
-      <section class="container mx-auto px-6 py-12 max-w-7xl">
-        <h2 class="text-3xl font-semibold text-center text-black">
-          Why Choose Us?
-        </h2>
-        <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-          <div class="p-4 bg-white rounded-lg shadow">
-            <h3 class="text-lg font-bold">Fast & Reliable</h3>
-            <p class="text-gray-700">Instant donor-recipient matching.</p>
-          </div>
-          <div class="p-4 bg-white rounded-lg shadow">
-            <h3 class="text-lg font-bold">Verified Donors</h3>
-            <p class="text-gray-700">Secure and authentic donor database.</p>
-          </div>
-          <div class="p-4 bg-white rounded-lg shadow">
-            <h3 class="text-lg font-bold">Completely Free</h3>
-            <p class="text-gray-700">No charges, just a life-saving mission.</p>
-          </div>
-          <div class="p-4 bg-white rounded-lg shadow">
-            <h3 class="text-lg font-bold">Community-Driven</h3>
-            <p class="text-gray-700">Join thousands of life-saving donors.</p>
-          </div>
+        <div className="mt-6 text-left">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+            Why Choose Us?
+          </h2>
+          <p className="text-gray-700">
+            Our platform is built with efficiency and security in mind. We
+            prioritize data privacy while ensuring that users can easily find
+            and connect with blood donors in their vicinity. By fostering a
+            community of willing donors, we are creating a life-saving network
+            accessible to everyone.
+          </p>
         </div>
-      </section>
+        <div className="mt-6 text-left">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2">Join Us</h2>
+          <p className="text-gray-700">
+            Be a hero today! Sign up as a donor and help save lives. If you're
+            in need of blood, our platform ensures you find a match as quickly
+            as possible. Together, we can make a difference and ensure that no
+            one has to struggle to find life-saving blood when they need it the
+            most.
+          </p>
+        </div>
 
-      <section class="container mx-auto px-6 py-12 bg-red-50 rounded-lg shadow-lg text-center max-w-7xl">
-        <h2 class="text-3xl font-semibold text-black">Join Us & Be a Hero</h2>
-        <p class="mt-4 text-lg text-gray-700">
-          Every drop of blood can be a lifeline for someone. Register today and
-          make a difference!
-        </p>
-        <a
-          href="#"
-          class="mt-6 inline-block bg-[#6A0B37] text-white px-6 py-3 rounded-lg text-lg font-semibold shadow-md hover:bg-red-700"
-        >
-          Become a Donor
-        </a>
-      </section>
-
-      {/* aituku */}
-
-      <section className="md:mx-[50px] md:my-[100px]">
-        <div className="md:mx-[50px]  md:flex  md:items-center justify-between">
-          <div className="w-full md:w-2/5">
-            <h1 className="font-roboto font-bold	text-4xl	my-[30px]  flex justify-center items-center md:justify-start">
-              Your Opinion
-            </h1>
-          </div>
-          <div>
-            {/* min-h-screen flex items-center justify-center bg-gray-100 */}
-            {/*  */}
-            <div className="md:flex  md:flex-row gap-8 w-full ">
-              <form
-                onSubmit={handleSubmit}
-                className="bg-white p-6 rounded-lg shadow-md  max-w-md"
+        <div className="mt-10 text-left">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-2 text-center ">
+            Share your feedback about our platform
+          </h2>
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto"
+          >
+            <div className="mb-4">
+              <label
+                className="block text-sm font-medium text-gray-700"
+                htmlFor="name"
               >
-                <h2 className="text-2xl font-bold mb-6 text-center">
-                  Feedback Form
-                </h2>
-
-                {/* Name Field */}
-                <div className="mb-4">
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm  sm:text-sm"
-                    placeholder="Enter your name"
-                    required
-                  />
-                </div>
-
-                {/* Profession Field */}
-                <div className="mb-4">
-                  <label
-                    htmlFor="profession"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Profession
-                  </label>
-                  <input
-                    type="text"
-                    id="profession"
-                    name="profession"
-                    value={formData.profession}
-                    onChange={handleChange}
-                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm sm:text-sm"
-                    placeholder="Enter your profession"
-                    required
-                  />
-                </div>
-
-                {/* Opinion Field */}
-                <div className="mb-6">
-                  <label
-                    htmlFor="opinion"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Opinion
-                  </label>
-                  <textarea
-                    id="opinion"
-                    name="opinion"
-                    value={formData.opinion}
-                    onChange={handleChange}
-                    className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm sm:text-sm"
-                    placeholder="Share your opinion"
-                    rows="4"
-                    required
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full bg-[#6A0B37] text-white py-2 px-4 rounded-md "
-                >
-                  Submit
-                </button>
-              </form>
-
-              {showModal && (
-                <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
-                  <div className="bg-white p-8 rounded shadow-lg text-center">
-                    <h2 className="text-2xl font-bold mb-4">Success!</h2>
-                    <p className="text-gray-700 mb-6">
-                      Your form has been submitted successfully.
-                    </p>
-                    <button
-                      className="bg-[#6A0B37] text-white py-2 px-4 rounded"
-                      onClick={() => {
-                        setShowModal(false);
-                        //function
-
-                        setFormData({
-                          name: "",
-                          profession: "",
-                          opinion: "",
-                        });
-                      }}
-                    >
-                      Close
-                    </button>
-                  </div>
-                </div>
-              )}
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full mt-1 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#6A0B37]"
+                placeholder="Enter your name"
+                required
+              />
             </div>
-          </div>
+            <div className="mb-4">
+              <label
+                className="block text-sm font-medium text-gray-700"
+                htmlFor="profession"
+              >
+                Profession
+              </label>
+              <input
+                type="text"
+                id="profession"
+                name="profession"
+                value={formData.profession}
+                onChange={handleChange}
+                className="w-full mt-1 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#6A0B37]"
+                placeholder="Enter your profession"
+                required
+              />
+            </div>
+            <div className="mb-6">
+              <label
+                className="block text-sm font-medium text-gray-700"
+                htmlFor="opinion"
+              >
+                Opinion
+              </label>
+              <textarea
+                id="opinion"
+                name="opinion"
+                value={formData.opinion}
+                onChange={handleChange}
+                className="w-full mt-1 p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#6A0B37]"
+                placeholder="Share your opinion"
+                rows="4"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-[#6A0B37] text-white py-3 px-4 rounded-lg text-lg font-semibold shadow-md hover:bg-[#55092b] transition"
+            >
+              Submit
+            </button>
+          </form>
+          {showModal && (
+            <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
+              <div className="bg-white p-8 rounded shadow-lg text-center">
+                <h2 className="text-2xl font-bold mb-4">Success!</h2>
+                <p className="text-gray-700 mb-6">
+                  Your form has been submitted successfully.
+                </p>
+                <button
+                  className="bg-[#6A0B37] text-white py-2 px-4 rounded-lg"
+                  onClick={() => {
+                    setShowModal(false);
+                    setFormData({ name: "", profession: "", opinion: "" });
+                  }}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-      </section>
+      </div>
     </div>
   );
 };
