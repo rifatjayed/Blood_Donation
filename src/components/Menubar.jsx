@@ -15,10 +15,15 @@ const Menubar = () => {
     logOut()
       .then((result) => {
         console.log(result);
+        setShowMenu(false);
       })
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const closeMenu = () => {
+    setShowMenu(false);
   };
   const [isOpen, setIsOpen] = useState(false);
 
@@ -125,7 +130,11 @@ const Menubar = () => {
                 {/* Dropdown Menu */}
                 {showMenu && (
                   <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md p-2">
-                    <Link to="/register" className="px-4 py-2">
+                    <Link
+                      to="/register"
+                      onClick={closeMenu}
+                      className="px-4 py-2"
+                    >
                       Profile
                     </Link>
                     <button

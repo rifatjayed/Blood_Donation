@@ -5,6 +5,9 @@ import buttonImg from "../../assets/img/correct.png";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import divisionData from "../../assets/division";
 import axios from "axios";
 
@@ -71,11 +74,33 @@ const RegisterPage = () => {
     if (!mobileNumberError || !emailError) {
       // Proceed with form submission
 
-      setShowModal(true);
+      // setShowModal(true);
       try {
         const response = await axios.post(`${api}/auth/register`, formData);
+        toast.success("Registration successful!", { position: "top-right" });
+
         console.log("Form submitted successfully:", response.data);
+
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          mobileNumber: "",
+          gender: "",
+          bloodGroup: "",
+          lastDonate: Date.now(),
+          birth: Date.now(),
+          division: "",
+          district: "",
+          upazilla: "",
+          password: "",
+          confirmPass: "",
+        });
       } catch (error) {
+        toast.error("Registration failed. Please try again.", {
+          position: "top-right",
+        });
+
         console.error("Error submitting form:", error.response.data);
       }
     }
@@ -442,7 +467,7 @@ const RegisterPage = () => {
             </div>
           </form>
 
-          {showModal && (
+          {/* {showModal && (
             <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
               <div className="bg-white p-8 rounded shadow-lg text-center">
                 <h2 className="text-2xl font-bold mb-4">Success!</h2>
@@ -480,8 +505,9 @@ const RegisterPage = () => {
                 </button>
               </div>
             </div>
-          )}
+          )} */}
         </div>
+        <ToastContainer />
       </div>
     </div>
   );

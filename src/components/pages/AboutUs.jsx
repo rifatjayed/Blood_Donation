@@ -1,10 +1,12 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { api } from "../../config";
 import { ToastContainer, toast } from "react-toastify"; // Import the toast components
+import { AuthContext } from "../../context/AuthProvider";
 
 const AboutUs = () => {
-  // const [showModal, setShowModal] = useState(false);
+  const { user } = useContext(AuthContext); // Get the logged-in user
+
   const [formData, setFormData] = useState({
     name: "",
     profession: "",
@@ -21,6 +23,15 @@ const AboutUs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission logic here
+
+    if (!user) {
+      toast.error("You must be logged in to submit feedback!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      return;
+    }
+
     try {
       const response = await axios.post(`${api}/feedback`, formData);
       setFormData({ name: "", profession: "", opinion: "" });
@@ -186,25 +197,6 @@ const AboutUs = () => {
               Submit
             </button>
           </form>
-          {/* {showModal && (
-            <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
-              <div className="bg-white p-8 rounded shadow-lg text-center">
-                <h2 className="text-2xl font-bold mb-4">Success!</h2>
-                <p className="text-gray-700 mb-6">
-                  Your form has been submitted successfully.
-                </p>
-                <button
-                  className="bg-[#6A0B37] text-white py-2 px-4 rounded-lg"
-                  onClick={() => {
-                    setShowModal(false);
-                    setFormData({ name: "", profession: "", opinion: "" });
-                  }}
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          )} */}
         </div>
       </div>
 
