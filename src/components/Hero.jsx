@@ -118,19 +118,18 @@ const Hero = () => {
 
           <div className="md:flex md:flex-row gap-8 md:w-3/5 justify-center items-center  ">
             <Swiper
-              spaceBetween={20}
+              spaceBetween={0}
               breakpoints={{
                 320: { slidesPerView: 1 },
                 640: { slidesPerView: 1 },
                 768: { slidesPerView: 2 },
                 1024: { slidesPerView: 3 },
               }}
-              className="flex items-center justify-center "
             >
               {/* Loop through the feedback data */}
               {feedback.map((item, index) => (
-                <SwiperSlide key={index}>
-                  <div className=" bg-white shadow-lg rounded-lg p-6 flex flex-col justify-between overflow-hidden">
+                <SwiperSlide key={index} className="box-border p-[15px]">
+                  <div className=" bg-white shadow-lg rounded-lg p-6 flex flex-col  overflow-hidden h-[150px]">
                     <div className="flex items-center gap-4 mb-4">
                       <img
                         src={userImg}

@@ -77,15 +77,20 @@ const SignUpPage = () => {
             {success && <p>{success}</p>}
             <button
               type="submit"
-              className="w-11/12	 mt-4 px-4 py-2 bg-black text-white font-semibold text-sm rounded-md shadow  focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
+              className="w-11/12	bg-[#6A0B37] mt-4 px-4 py-2  text-white font-semibold text-sm rounded-md shadow  focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
             >
               Sign Up{" "}
             </button>
           </form>
-          <p className="ml-4">
+          <p className="ml-4 mt-2">
             Already have an account? Please
             <Link to="/login">
-              <button className="btn btn-link">Login</button>
+              <button
+                className="btn btn-link ml-1 text-[#6A0B37] font-semibold
+"
+              >
+                Login
+              </button>
             </Link>
           </p>
         </div>

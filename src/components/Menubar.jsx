@@ -70,7 +70,7 @@ const Menubar = () => {
                 onClick={() => handleClick("home")}
                 className={`${
                   active === "home"
-                    ? "underline underline-offset-8 decoration-[#4B4949]	decoration-4	"
+                    ? "underline underline-offset-8  decoration-[#6A0B37]	decoration-4	"
                     : ""
                 }`}
               >
@@ -83,7 +83,7 @@ const Menubar = () => {
                 onClick={() => handleClick("aboutUs")}
                 className={`${
                   active === "aboutUs"
-                    ? "underline underline-offset-8 decoration-[#4B4949]	decoration-4"
+                    ? "underline underline-offset-8 decoration-[#6A0B37]	decoration-4"
                     : ""
                 }`}
               >
@@ -96,7 +96,7 @@ const Menubar = () => {
                 onClick={() => handleClick("bloodList")}
                 className={`${
                   active === "bloodList"
-                    ? "underline underline-offset-8 decoration-[#4B4949]	decoration-4"
+                    ? "underline underline-offset-8 decoration-[#6A0B37]	decoration-4"
                     : ""
                 }`}
               >
@@ -121,10 +121,18 @@ const Menubar = () => {
               <div>
                 <img
                   src={userImg}
-                  className="w-[30px]"
+                  // className="w-[30px] border border-indigo-600 rounded-full"
+                  className={`${
+                    active === "profile"
+                      ? "w-[30px] border border-indigo-600 rounded-full"
+                      : "w-[30px]"
+                  }`}
                   alt=""
                   srcset=""
-                  onClick={() => setShowMenu(!showMenu)}
+                  onClick={() => {
+                    setShowMenu(!showMenu);
+                    handleClick("profile");
+                  }}
                 />
 
                 {/* Dropdown Menu */}

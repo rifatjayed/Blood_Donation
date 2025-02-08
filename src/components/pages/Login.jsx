@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 
@@ -24,7 +23,7 @@ const Login = () => {
         console.log(result);
       })
       .catch((error) => {
-        setError("error khyse re");
+        setError("Incorrect email or password");
         console.log(error);
       });
   };
@@ -63,16 +62,16 @@ const Login = () => {
           {success && <p>{success}</p>}
           <button
             type="submit"
-            className="w-11/12	 mt-4 px-4 py-2 bg-black text-white font-semibold text-sm rounded-md shadow  focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
+            className="w-11/12	 mt-4 px-4 py-2 bg-[#6A0B37] text-white font-semibold text-sm rounded-md shadow  focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
           >
             Log In
           </button>
         </form>
 
         <div>
-          <p className="text-[#303030] text-[18px] font-normal	">
+          <p className="text-[#303030] ">
             Don’t have an account?{" "}
-            <span className="text-[#2D31AB]">
+            <span className="text-[#6A0B37] font-semibold">
               <Link to="/Signup">Sign Up</Link>
             </span>
           </p>

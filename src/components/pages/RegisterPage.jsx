@@ -93,8 +93,6 @@ const RegisterPage = () => {
           division: "",
           district: "",
           upazilla: "",
-          password: "",
-          confirmPass: "",
         });
       } catch (error) {
         toast.error("Registration failed. Please try again.", {
@@ -416,7 +414,7 @@ const RegisterPage = () => {
               <div></div>
             </div>
 
-            <div className="grid  md:grid-cols-2 md:gap-24">
+            {/* <div className="grid  md:grid-cols-2 md:gap-24">
               <div>
                 <label
                   className="text-sm font-medium font-roboto text-[#4D4D4D] mb-2 text-left"
@@ -452,7 +450,7 @@ const RegisterPage = () => {
                   required
                 />
               </div>
-            </div>
+            </div> */}
 
             <div className="mt-6 flex md:justify-end justify-center ">
               <button
