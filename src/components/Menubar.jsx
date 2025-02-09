@@ -7,6 +7,7 @@ const Menubar = () => {
   const [active, setActive] = useState(""); // state to track the active menu item
   const [showMenu, setShowMenu] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = (menuItem) => {
     setActive(menuItem); // update the active menu item
@@ -25,7 +26,6 @@ const Menubar = () => {
   const closeMenu = () => {
     setShowMenu(false);
   };
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
@@ -34,7 +34,7 @@ const Menubar = () => {
           <div className="text-2xl font-semibold text-[#6A0B37]">DonorHub </div>
 
           {/* Hamburger Icon for Mobile */}
-          <div className="block md:hidden">
+          {/* <div className="block md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-[#c6414c] focus:outline-none"
@@ -53,6 +53,24 @@ const Menubar = () => {
                   d={
                     isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"
                   }
+                />
+              </svg>
+            </button>
+          </div> */}
+
+          <div className="block md:hidden">
+            <button onClick={() => setIsOpen(true)} className="text-[#c6414c]">
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
             </button>
@@ -103,19 +121,6 @@ const Menubar = () => {
                 Find Blood
               </Link>
             </li>
-            {/* <li className="p-2">
-              <Link
-                to="/Register"
-                onClick={() => handleClick("register")}
-                className={`${
-                  active === "register"
-                    ? "underline underline-offset-8 decoration-[#4B4949]	decoration-4"
-                    : ""
-                }`}
-              >
-                Register
-              </Link>
-            </li> */}
 
             {user ? (
               <div>
@@ -169,6 +174,56 @@ const Menubar = () => {
               </div>
             )}
           </ul>
+
+          {/* Mobile Menu - Full Screen Overlay */}
+          <div
+            className={`fixed top-0 right-0 w-full h-full bg-white shadow-lg transform transition-transform duration-300 ${
+              isOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-5 right-5 text-3xl text-red-600"
+            >
+              &times;
+            </button>
+
+            {/* Menu Links */}
+            <ul className="flex flex-col items-center justify-center h-full space-y-6 text-2xl">
+              <li>
+                <Link to="/" onClick={() => setIsOpen(false)}>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/AboutUs" onClick={() => setIsOpen(false)}>
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/BloodList" onClick={() => setIsOpen(false)}>
+                  Find Blood
+                </Link>
+              </li>
+              {user ? (
+                <div className="flex flex-col">
+                  <Link to="/register" onClick={closeMenu} className="px-4">
+                    Profile
+                  </Link>
+                  <button onClick={handleLogOut} className="text-red-600 pt-4">
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <Link to="/Login">
+                  <button className="border border-black px-6 py-2 rounded-lg">
+                    Login
+                  </button>
+                </Link>
+              )}
+            </ul>
+          </div>
         </nav>
       </header>
     </div>
