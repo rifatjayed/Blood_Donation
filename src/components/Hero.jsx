@@ -129,7 +129,7 @@ const Hero = () => {
               {/* Loop through the feedback data */}
               {feedback.map((item, index) => (
                 <SwiperSlide key={index} className="box-border p-[15px]">
-                  <div className=" bg-white shadow-lg rounded-lg p-6 flex flex-col  overflow-hidden h-[150px]">
+                  <div className=" bg-white shadow-lg rounded-lg p-6 flex flex-col  overflow-hidden h-[250px]">
                     <div className="flex items-center gap-4 mb-4">
                       <img
                         src={userImg}

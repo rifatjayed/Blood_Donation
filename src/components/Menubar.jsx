@@ -208,7 +208,11 @@ const Menubar = () => {
               </li>
               {user ? (
                 <div className="flex flex-col">
-                  <Link to="/register" onClick={closeMenu} className="px-4">
+                  <Link
+                    to="/register"
+                    onClick={() => setIsOpen(false)}
+                    className="px-4"
+                  >
                     Profile
                   </Link>
                   <button onClick={handleLogOut} className="text-red-600 pt-4">
