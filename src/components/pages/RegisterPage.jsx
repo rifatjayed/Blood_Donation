@@ -30,9 +30,7 @@ const RegisterPage = () => {
     gender: "",
     bloodGroup: "",
     lastDonate: Date.now(),
-    birth: Date.now(),
-    // lastDonate: new Date(), //
-    // birth: new Date(), //
+
     division: "",
     district: "",
     upazilla: "",
@@ -89,9 +87,6 @@ const RegisterPage = () => {
           gender: "",
           bloodGroup: "",
           lastDonate: Date.now(),
-          birth: Date.now(),
-          // lastDonate: new Date(), // ✅ ফিক্স
-          // birth: new Date(), //
           division: "",
           district: "",
           upazilla: "",
