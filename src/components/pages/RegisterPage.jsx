@@ -31,11 +31,11 @@ const RegisterPage = () => {
     bloodGroup: "",
     lastDonate: Date.now(),
     birth: Date.now(),
+    // lastDonate: new Date(), //
+    // birth: new Date(), //
     division: "",
     district: "",
     upazilla: "",
-    password: "",
-    confirmPass: "",
   });
 
   const handleChange = (e) => {
@@ -90,6 +90,8 @@ const RegisterPage = () => {
           bloodGroup: "",
           lastDonate: Date.now(),
           birth: Date.now(),
+          // lastDonate: new Date(), // ✅ ফিক্স
+          // birth: new Date(), //
           division: "",
           district: "",
           upazilla: "",
@@ -131,7 +133,7 @@ const RegisterPage = () => {
                   className="text-sm font-medium font-roboto text-[#4D4D4D] mb-2 text-left"
                   htmlFor=""
                 >
-                  Fast Name:
+                  First Name:
                 </label>
                 <input
                   type="text"
